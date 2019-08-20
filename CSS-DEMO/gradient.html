@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>渐变</title>
+    <style>
+        .son {
+            border: 1px solid orangered;
+            width: 400px;
+            height: 100px;
+        }
+
+        .simple-linear {
+            background: linear-gradient(red 0%, orange 25%, yellow 50%, green 75%, blue 100%);
+        }
+
+        .color-hint {
+            background: linear-gradient(red, 30%, green)
+        }
+
+        .diagonal-gradient {
+            background: linear-gradient(to bottom right, blue, pink);
+        }
+
+        .striped {
+            background: linear-gradient(to bottom, cyan 50%, palegoldenrod 50%);
+        }
+
+        .horizontal-gradient {
+            background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+                linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+                linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        }
+
+        .layered-image {
+            background: linear-gradient(to right, transparent, mistyrose),
+                url("https://mdn.mozillademos.org/files/15525/critters.png");
+        }
+
+        .stacked-linear {
+            background:
+                linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+                linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+                linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+        }
+    </style>
+</head>
+
+<body>
+    <h4>1.基础渐变</h4>
+    <h5>使用2个或者多个颜色值（百分比）： background: linear-gradient(red, orange, yellow, green, blue)</h5>
+    <div class="son simple-linear">基础渐变</div>
+
+    <h4>2.改变过渡的中心点</h4>
+    <h5>两个颜色之间使用百分数： background: linear-gradient(red, 30%, green)</h5>
+    <div class="son color-hint">改变过渡的中心点</div>
+
+    <h4>3.改变渐变角度</h4>
+    <div class="son diagonal-gradient">改变渐变角度</div>
+
+    <h4>4.实现</h4>
+    <div class="son striped">改变渐变角度</div>
+
+    <h4>5.图片增加蒙层</h4>
+    <div class="son layered-image">图片增加蒙层</div>
+
+    <h4>6.堆叠</h4>
+    <div class="son stacked-linear">stacked-linear</div>
+</body>
+
+</html>
