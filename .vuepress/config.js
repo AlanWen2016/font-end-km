@@ -37,7 +37,7 @@ module.exports = {
         title: 'VUE',
         collapsable: false,
         children: [
-          '/guide/vue/jsx',
+          ['/guide/vue/jsx', 'render函数和jsx'],
 
         ]
       }
