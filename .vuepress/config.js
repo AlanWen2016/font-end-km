@@ -5,6 +5,7 @@ module.exports = {
     lineNumbers: true
   },
   themeConfig: {
+    sidebarDepth: 1, // 控制侧边栏显示,文档里的一二级标题都将在侧边栏显示
     sidebar: [
       {
         title: 'JavaScript基础',
@@ -12,7 +13,7 @@ module.exports = {
         children: [
           '/guide/javascript/basic',
           '/guide/javascript/prototype',
-          '/guide/javascript/closure',
+          ['/guide/javascript/closure', '闭包']
           
         ] 
       },
@@ -30,6 +31,14 @@ module.exports = {
         children: [
           '/',
           '/guide/css/gradient'
+        ]
+      },
+      {
+        title: 'VUE',
+        collapsable: false,
+        children: [
+          '/guide/vue/jsx',
+
         ]
       }
     ],
