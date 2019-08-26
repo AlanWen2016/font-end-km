@@ -40,6 +40,14 @@ module.exports = {
           ['/guide/vue/jsx', 'render函数和jsx'],
 
         ]
+      },
+      {
+        title: 'Docker',
+        collapsable: false,
+        children: [
+          ['/guide/docker/docker', 'Docker基础'],
+
+        ]
       }
     ],
     nav: [{
