@@ -48,7 +48,14 @@ module.exports = {
           ['/guide/docker/docker', 'Docker基础'],
 
         ]
-      }
+      },
+      {
+        title: 'Jenkins',
+        collapsable: false,
+        children: [
+        '/guide/jenkins/jenkins'
+        ]
+      },
     ],
     nav: [{
         text: '首页',

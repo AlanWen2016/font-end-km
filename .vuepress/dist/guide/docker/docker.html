@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>docker基础 | 前端笔记</title>
+    <meta name="description" content="知识大全">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3276c1c2.css" as="style"><link rel="preload" href="/assets/js/app.57dc4aca.js" as="script"><link rel="preload" href="/assets/js/2.a02d7939.js" as="script"><link rel="preload" href="/assets/js/14.6e48cbe6.js" as="script"><link rel="prefetch" href="/assets/js/10.4c3fb47a.js"><link rel="prefetch" href="/assets/js/11.9349892d.js"><link rel="prefetch" href="/assets/js/12.ccfb1023.js"><link rel="prefetch" href="/assets/js/13.6ed63847.js"><link rel="prefetch" href="/assets/js/15.961493d7.js"><link rel="prefetch" href="/assets/js/16.2f6896aa.js"><link rel="prefetch" href="/assets/js/17.f14b4f4b.js"><link rel="prefetch" href="/assets/js/18.1c25e15d.js"><link rel="prefetch" href="/assets/js/19.dce53a1d.js"><link rel="prefetch" href="/assets/js/20.31525501.js"><link rel="prefetch" href="/assets/js/21.1dd7726b.js"><link rel="prefetch" href="/assets/js/22.4800d9a2.js"><link rel="prefetch" href="/assets/js/23.76c9c0df.js"><link rel="prefetch" href="/assets/js/24.699025d0.js"><link rel="prefetch" href="/assets/js/25.7399c574.js"><link rel="prefetch" href="/assets/js/26.ef72e736.js"><link rel="prefetch" href="/assets/js/3.647c0025.js"><link rel="prefetch" href="/assets/js/4.c6c8c5c6.js"><link rel="prefetch" href="/assets/js/5.6ddad49a.js"><link rel="prefetch" href="/assets/js/6.cd88fdfe.js"><link rel="prefetch" href="/assets/js/7.e8376296.js"><link rel="prefetch" href="/assets/js/8.a8a89ed9.js"><link rel="prefetch" href="/assets/js/9.2dbdac08.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3276c1c2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">大纲</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">大纲</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JavaScript基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/javascript/basic.html" class="sidebar-link">变量和类型</a></li><li><a href="/guide/javascript/prototype.html" class="sidebar-link">原型和原型链</a></li><li><a href="/guide/javascript/closure.html" class="sidebar-link">闭包</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>HTML</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/" class="sidebar-link">Home</a></li><li><a href="/guide/html/test.html" class="sidebar-link">HMLT</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/" class="sidebar-link">Home</a></li><li><a href="/guide/css/gradient.html" class="sidebar-link">CSS渐变</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/vue/jsx.html" class="sidebar-link">render函数和jsx</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Docker</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/docker/docker.html" class="active sidebar-link">Docker基础</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#docker" class="sidebar-link">docker</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#centos-安装docker安装" class="sidebar-link">centOS 安装docker安装</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#docker命令" class="sidebar-link">docker命令</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#装centos镜像" class="sidebar-link">装centos镜像</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#容器镜像" class="sidebar-link">容器镜像</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#docker容器数据卷" class="sidebar-link">docker容器数据卷</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#docker数据管理" class="sidebar-link">docker数据管理</a></li><li class="sidebar-sub-header"><a href="/guide/docker/docker.html#使用dockerfile创建镜像" class="sidebar-link">使用dockerfile创建镜像</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Jenkins</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/jenkins/jenkins.html" class="sidebar-link">jenkin指南</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="docker基础"><a href="#docker基础" aria-hidden="true" class="header-anchor">#</a> docker基础</h1> <h3 id="_1-前提知识"><a href="#_1-前提知识" aria-hidden="true" class="header-anchor">#</a> 1.前提知识</h3> <ul><li>Linux背景</li> <li>Git</li> <li>Go语言编写的容器技术</li> <li>与jenkins整合</li></ul> <h2 id="docker"><a href="#docker" aria-hidden="true" class="header-anchor">#</a> docker</h2> <ul><li>解决开发和部署在环境和和配置上差异</li> <li>集群部署
+Docker本身是一个容器运行载体，我们把运用程序打包好形成一个可交付的运行环境，这个打包好的运行环境就是镜像文件。镜像文件可以看作是容器的模板。</li></ul> <h2 id="centos-安装docker安装"><a href="#centos-安装docker安装" aria-hidden="true" class="header-anchor">#</a> centOS 安装docker安装</h2> <p><a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener noreferrer">官方安装文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>安装步骤:</p> <ul><li>卸载旧版本docker</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo yum remove docker \
+docker-client \
+docker-client-latest \
+docker-common \
+docker-latest \
+docker-latest-logrotate \
+docker-logrotate \
+docker-engine
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li>查看docker安装信息、版本</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker info
+docker version
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li>安装依赖包</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li>安装docker-ce版本、docker-cli</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo yum install docker-ce docker-ce-cli containerd.io
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>启动docker后台服务</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl start docker
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>测试docker后台服务</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker run hello-world
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="docker的镜像："><a href="#docker的镜像：" aria-hidden="true" class="header-anchor">#</a> docker的镜像：</h3> <p>运行文档、配置环境、环境、运行依赖包、操作系统发行版、内核</p> <p>docker的理念： 一处封装，到处运行</p> <h3 id="docker用途"><a href="#docker用途" aria-hidden="true" class="header-anchor">#</a> docker用途</h3> <ul><li>区别虚拟机
+虚拟机： 带环境安装的一种解决方案，虚拟机技术是在一种操作系统里面运行另一种操作系统</li></ul> <ol><li>在宿主机OS上运行虚拟机OS</li> <li>镜像文件大</li> <li>操作系统额外的CPU、内存消耗</li> <li>笨重、与虚拟化技术耦合度搞</li> <li>面向硬件运维者</li> <li>较慢</li></ol> <ul><li>docker优点
+1.与宿主机共享OS
+2.镜像文件小
+3.易移植
+4.部署快</li></ul> <p>轻量，简单，centos镜像一百多M</p> <h3 id="docker的架构图"><a href="#docker的架构图" aria-hidden="true" class="header-anchor">#</a> Docker的架构图</h3> <ul><li><p>client
+docker build
+docker pull
+docker run</p></li> <li><p>docker_host
+containers
+images</p></li> <li><p>registry</p></li></ul> <p>三大要素：</p> <ol><li>镜像： image文件生成的容器实例，本身也是一个文件，称为镜像文件</li> <li>容器： 用镜像创建的运行实例</li> <li>仓库： 集中存放镜像文件的场所</li></ol> <h2 id="docker命令"><a href="#docker命令" aria-hidden="true" class="header-anchor">#</a> docker命令</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker --help
+
+
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version
+docker version
+docker info
+
+## Execute Docker image
+docker run hello-world
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+
+
+docker build -t friendlyhello .  # Create image using this directory's Dockerfile
+docker run -p 4000:80 friendlyhello  # Run &quot;friendlyhello&quot; mapping port 4000 to 80
+docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode
+docker container ls                                # List all running containers
+docker container ls -a             # List all containers, even those not running
+docker container stop &lt;hash&gt;           # Gracefully stop the specified container
+docker container kill &lt;hash&gt;         # Force shutdown of the specified container
+docker container rm &lt;hash&gt;        # Remove specified container from this machine
+docker container rm $(docker container ls -a -q)         # Remove all containers
+docker image ls -a                             # List all images on this machine
+docker image rm &lt;image id&gt;            # Remove specified image from this machine
+docker image rm $(docker image ls -a -q)   # Remove all images from this machine
+docker login             # Log in this CLI session using your Docker credentials
+docker tag &lt;image&gt; username/repository:tag  # Tag &lt;image&gt; for upload to registry
+docker push username/repository:tag            # Upload tagged image to registry
+docker run username/repository:tag                   # Run image from a registry
+
+
+attach    Attach to a running container                 # 当前 shell 下 attach 连接指定运行镜像
+build     Build an image from a Dockerfile              # 通过 Dockerfile 定制镜像
+commit    Create a new image from a container changes   # 提交当前容器为新的镜像
+cp        Copy files/folders from the containers filesystem to the host path   #从容器中拷贝指定文件或者目录到宿主机中
+create    Create a new container                        # 创建一个新的容器，同 run，但不启动容器
+diff      Inspect changes on a container's filesystem   # 查看 docker 容器变化
+events    Get real time events from the server          # 从 docker 服务获取容器实时事件
+exec      Run a command in an existing container        # 在已存在的容器上运行命令
+export    Stream the contents of a container as a tar archive   # 导出容器的内容流作为一个 tar 归档文件[对应 import ]
+history   Show the history of an image                  # 展示一个镜像形成历史
+images    List images                                   # 列出系统当前镜像
+import    Create a new filesystem image from the contents of a tarball # 从tar包中的内容创建一个新的文件系统映像[对应export]
+info      Display system-wide information               # 显示系统相关信息
+inspect   Return low-level information on a container   # 查看容器详细信息
+kill      Kill a running container                      # kill 指定 docker 容器
+load      Load an image from a tar archive              # 从一个 tar 包中加载一个镜像[对应 save]
+login     Register or Login to the docker registry server    # 注册或者登陆一个 docker 源服务器
+logout    Log out from a Docker registry server         # 从当前 Docker registry 退出
+logs      Fetch the logs of a container                 # 输出当前容器日志信息
+port      Lookup the public-facing port which is NAT-ed to PRIVATE_PORT    # 查看映射端口对应的容器内部源端口
+pause     Pause all processes within a container        # 暂停容器
+ps        List containers                               # 列出容器列表
+pull      Pull an image or a repository from the docker registry server   # 从docker镜像源服务器拉取指定镜像或者库镜像
+push      Push an image or a repository to the docker registry server    # 推送指定镜像或者库镜像至docker源服务器
+restart   Restart a running container                   # 重启运行的容器
+rm        Remove one or more containers                 # 移除一个或者多个容器
+rmi       Remove one or more images             # 移除一个或多个镜像[无容器使用该镜像才可删除，否则需删除相关容器才可继续或 -f 强制删除]
+run       Run a command in a new container              # 创建一个新的容器并运行一个命令
+save      Save an image to a tar archive                # 保存一个镜像为一个 tar 包[对应 load]
+search    Search for an image on the Docker Hub         # 在 docker hub 中搜索镜像
+start     Start a stopped containers                    # 启动容器
+stop      Stop a running containers                     # 停止容器
+tag       Tag an image into a repository                # 给源中镜像打标签
+top       Lookup the running processes of a container   # 查看容器中运行的进程信息
+unpause   Unpause a paused container                    # 取消暂停容器
+version   Show the docker version information           # 查看 docker 版本号
+wait      Block until a container stops, then print its exit code   # 截取容器停止时的退出状态值
+ 
+
+// 镜像列表
+docker images
+
+// 查找镜像
+docker search ...
+
+// 下载镜像,使用tag确定版本
+docker pull tomcat  //等价于 docker pull tomcat:latest
+
+// 删除镜像
+docker rmi hello-world
+
+docker start imageId
+
+// 查看运行的容器
+docker ps 
+
+docker stop
+
+docker kill
+
+// Ctrl + P + Q 退出当前
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br></div></div><h2 id="装centos镜像"><a href="#装centos镜像" aria-hidden="true" class="header-anchor">#</a> 装centos镜像</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>//
+docker run -it --name mycentos
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>//</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker run -d centos /bin/sh -c &quot;while true; do echo hello docker;sleep 2; done&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="容器镜像"><a href="#容器镜像" aria-hidden="true" class="header-anchor">#</a> 容器镜像</h2> <ul><li>自定义镜像</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 提交镜像
+docker commit 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="docker容器数据卷"><a href="#docker容器数据卷" aria-hidden="true" class="header-anchor">#</a> docker容器数据卷</h2> <p>1.容器数据持久化
+2.容器之间共享数据</p> <p>// redis分布式式的内存持久化</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>docker cp // 从容器内拷贝文件到目的主机
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>直接命令添加</li> <li>dockerFile添加</li> <li>备注</li></ul> <p>docker run -it -v /宿主机绝对路径目录：/容器内目录 镜像名</p> <p>docker run -it /myDataVolumn:/dataVolumnContainer imageNames</p> <p>Notes:
+此时宿主机下的myDataVolumn与容器内dataVolumnContainer实现目录共享</p> <h2 id="docker数据管理"><a href="#docker数据管理" aria-hidden="true" class="header-anchor">#</a> docker数据管理</h2> <h3 id="基本概念"><a href="#基本概念" aria-hidden="true" class="header-anchor">#</a> 基本概念</h3> <ul><li><ol><li>数据卷（Data Volumes）:容器内数据直接映射到本地主机环境</li></ol></li> <li><ol start="2"><li>数据卷容器（Data Volumn Containers）: 使用特定的容器维护数据卷</li></ol></li></ul> <h3 id="重点"><a href="#重点" aria-hidden="true" class="header-anchor">#</a> 重点</h3> <ul><li>a. 如何在容器内创建数据卷</li> <li>b. 如何把本机的目录或文件目录或者文件挂载到容器内的数据卷中</li> <li>c. 数据卷容器和容器和主机、容器和容器之间共享数据</li> <li>d.</li></ul> <h2 id="使用dockerfile创建镜像"><a href="#使用dockerfile创建镜像" aria-hidden="true" class="header-anchor">#</a> 使用dockerfile创建镜像</h2> <p>Dockerfile是一个文本格式的配置文件，用户可以使用dockerfile来快速自定义的镜像。</p> <p>构建步骤： dockerfile编写-&gt; docker build -&gt; docker run
+重点：</p> <ul><li><ol><li>dockerfile典型的基本结构</li></ol></li> <li><ol start="2"><li>相关指令</li></ol></li> <li><ol start="3"><li>最佳实践</li></ol></li></ul> <blockquote><p>Dockerfile基本结构
+看看下载镜像centos的dockerfile结构</p></blockquote> <div class="language-Dockerfile line-numbers-mode"><pre class="language-text"><code>From centos:
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/guide/vue/jsx.html" class="prev">
+          render函数和jsx
+        </a></span> <span class="next"><a href="/guide/jenkins/jenkins.html">
+          jenkin指南
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.57dc4aca.js" defer></script><script src="/assets/js/2.a02d7939.js" defer></script><script src="/assets/js/14.6e48cbe6.js" defer></script>
+  </body>
+</html>
