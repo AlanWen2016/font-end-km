@@ -1,6 +1,6 @@
 module.exports = {
-  title: '前端笔记',
-  description: '知识大全',
+  title: '搬砖日记',
+  description: 'Web开发者的自我修养',
   markdown: {
     lineNumbers: true
   },
@@ -21,7 +21,6 @@ module.exports = {
         title: 'HTML',
         collapsable: false,
         children: [
-          '',
           '/guide/html/test'
         ]
       },
@@ -29,8 +28,10 @@ module.exports = {
         title: 'CSS',
         collapsable: false,
         children: [
-          '/',
-          '/guide/css/gradient'
+          [ '/guide/css/gradient', '渐变'],
+          [ '/guide/css/flex', 'flex布局'],
+          [ '/guide/css/animation', 'css动画'],
+         
         ]
       },
       {
