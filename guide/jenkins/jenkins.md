@@ -6,3 +6,8 @@
 
 
 ### 阿里云平台使用
+
+candidates="
+/usr/local/jdk/bin/java
+/usr/local/jdk/jre/java
+"
