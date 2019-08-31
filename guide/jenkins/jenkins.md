@@ -32,3 +32,5 @@ candidates="
 /usr/local/jdk/bin/java
 /usr/local/jdk/jre/java
 "
+
+### vuepress项目发布
