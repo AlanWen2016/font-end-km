@@ -34,3 +34,9 @@ candidates="
 "
 
 ### vuepress项目发布
+
+#### vuepress项目本地构建
+
+#### git提交
+
+#### jenkins发布
