@@ -17,7 +17,7 @@
 
  console.log(p.name);
  f1(p);
- console.log(p.namme);
+ console.log(p.name);
 
 
 ```
