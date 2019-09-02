@@ -1,5 +1,3 @@
-### 这里是首页
-
 ### JavaScript基础
 
 #### 变量和类型
@@ -77,10 +75,15 @@
 
  meta标签：用来定义文档的各种元数据。
  类型：
- a. 指定名、值元数据对<meta name="description" content="A simple sample"/>
- b. 声明字符编码 <meta charset="utf-8"/>
- c. 模拟http标头字段<meta http-equiv="refresh" content="5" />
 
+ ```html
+ a. 指定名、值元数据对
+ <meta name="description" content="A simple sample"/>
+ b. 声明字符编码 
+ <meta charset="utf-8"/>
+ c. 模拟http标头字段
+ <meta http-equiv="refresh" content="5" />
+```
 4.HTML5离线缓存原理
 5.可以使用Canvas API、SVG等绘制高性能的动画
 

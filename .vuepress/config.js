@@ -7,7 +7,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1, // 控制侧边栏显示,文档里的一二级标题都将在侧边栏显示
     sidebar: [
-      {
+          {
         title: 'JavaScript基础',
         collapsable: false,
         children: [
