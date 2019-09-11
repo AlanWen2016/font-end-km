@@ -13,9 +13,10 @@ module.exports = {
         children: [
           '/guide/javascript/basic',
           '/guide/javascript/prototype',
-          ['/guide/javascript/closure', '闭包']
-          
-        ] 
+          ['/guide/javascript/closure', '闭包'],
+          ['/guide/javascript/npm', 'npm发布'],
+
+        ]
       },
       {
         title: 'HTML',
@@ -31,7 +32,7 @@ module.exports = {
           [ '/guide/css/gradient', '渐变'],
           [ '/guide/css/flex', 'flex布局'],
           [ '/guide/css/animation', 'css动画'],
-         
+          [ '/guide/css/layout', 'css布局'],
         ]
       },
       {
@@ -39,7 +40,6 @@ module.exports = {
         collapsable: false,
         children: [
           ['/guide/vue/jsx', 'render函数和jsx'],
-
         ]
       },
       {

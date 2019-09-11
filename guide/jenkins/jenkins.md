@@ -1,25 +1,22 @@
-# jenkin指南
+# jenkin
 
+Jenkins是基于java开发的持续集成工具，用于监控执行的重复的工作，用于自动执行构建、测试、交互或部署软件相关的任务
 
 ::: tip 
-简介：Jenkins是基于java开发的持续集成工具，用于监控执行的重复的工作，用于自动执行构建、测试、交互或部署软件相关的任务
+CI/CD概念
 :::
 
 
-**持续集成（continuous integration,ci）**: 
-代码合并、构建、部署、测试都在一起，不断执行这个过程，并对结果进行反馈
+**持续集成（continuous integration,ci）**: 代码合并、构建、部署、测试都在一起，不断执行这个过程，并对结果进行反馈  
+**持续部署（Continuous Deloyment, CD）**:部署到测试环境、预生产环境、生产环境。  
+**持续交付（Continuous Delivery, CD）**:将最终的产品发布到成产环境，工用户使用。
 
-- 持续部署（Continuous Deloyment, CD）: 部署到测试环境、预生产环境、生产环境。
- - 持续交付（Continuous Delivery, CD）: 将最终的产品发布到成产环境，工用户使用。
+::: tip 
+非容器化部署方式 VS 容器化部署方式
+:::
 
-
-> 非容器化部署方式：
-
-开发 -> 编译 -> 部署到测试环境 -> 测试 -> 部署到生成环境
-
-> 容器化部署方式：
-
-开发 -> 编译 -> 打包镜像仓库 -> 部署到任何环境 -> 测试
+- 非容器化部署方式：开发 -> 编译 -> 部署到测试环境 -> 测试 -> 部署到生成环境
+- 容器化部署方式：开发 -> 编译 -> 打包镜像仓库 -> 部署到任何环境 -> 测试
 
 
 ### jenkins Pipeline(流水线)
@@ -48,27 +45,11 @@
 
 ### jenkins配置
 
-
 - 邮件配置
 
 - 权限分配
 1. 安装插件 Role-based Authorization Strategy
+2. 配置用户权限
 
 
-
-
-
-### 阿里云平台使用
-
-candidates="
-/usr/local/jdk/bin/java
-/usr/local/jdk/jre/java
-"
-
-### vuepress项目发布
-
-#### vuepress项目本地构建
-
-#### git提交
-
-#### jenkins发布
+- 
