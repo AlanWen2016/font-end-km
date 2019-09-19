@@ -1,6 +1,6 @@
 module.exports = {
   title: '搬砖日记',
-  description: 'Web开发者的自我修养',
+  description: '',
   markdown: {
     lineNumbers: true
   },
@@ -15,7 +15,7 @@ module.exports = {
           '/guide/javascript/prototype',
           ['/guide/javascript/closure', '闭包'],
           ['/guide/javascript/npm', 'npm发布'],
-
+          ['/guide/javascript/module', '模块化'],
         ]
       },
       {
@@ -55,6 +55,13 @@ module.exports = {
         collapsable: false,
         children: [
         '/guide/jenkins/jenkins'
+        ]
+      },
+      {
+        title: 'Webpack',
+        collapsable: false,
+        children: [
+        '/guide/webpack/webpack'
         ]
       },
     ],

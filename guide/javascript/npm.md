@@ -1,7 +1,8 @@
 # npm发布js函数库
-[查看源码]()
-## 一. npm注册、登陆
 
+[查看源码,觉得有帮助就随手给个star吧](https://github.com/AlanWen2016/biu-function)
+
+## 一. npm注册、登陆
 1. 注册账户网站： [前往npm官网](https://www.npmjs.com/signup)
 2. 登陆：
 ```
