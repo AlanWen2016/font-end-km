@@ -16,6 +16,7 @@ module.exports = {
           ['/guide/javascript/closure', '闭包'],
           ['/guide/javascript/npm', 'npm发布'],
           ['/guide/javascript/module', '模块化'],
+          ['/guide/javascript/jwt', 'JSON WEB令牌'],
         ]
       },
       {
