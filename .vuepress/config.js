@@ -1,6 +1,6 @@
 module.exports = {
-  title: '搬砖日记',
-  description: '',
+  title: 'WEB珠玑',
+  description: '我思故我在',
   markdown: {
     lineNumbers: true
   },
