@@ -17,6 +17,8 @@ JSON WEB令牌，目前比较流行的跨域解决方案,开放标准(RFC 7519),
 }
 ```
 - Payload（负载）
+
+Payload部分，官方规定了7个字段，也可以定义部分私有字段，比如用户信息
 ```
 iss (issuer)：签发人
 exp (expiration time)：过期时间
@@ -27,6 +29,8 @@ iat (Issued At)：签发时间
 jti (JWT ID)：编号
 ```
 - Signature（签名）
+对前面两部分数据的签名，防止数据篡改。
+
 
 ```
 HMACSHA256(
@@ -36,9 +40,113 @@ HMACSHA256(
 
 ```
 算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用"点"（.）分隔，就可以返回给用户。
+
+
+### JWT使用
+
+客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。
+JWT放在 HTTP 请求的头信息Authorization字段里面。
+
+
+### Vue项目在路由进行登陆前端校验
+
+- vue-router配置的路由定义一个meta属性，标识为 meta:{needLogin: true}
+- 在导航守卫里进行校验，不通过则跳到登陆页面
+```
+router.beforeEach(async (to, from, next) => {
+  // 校验登陆态
+  const isLogin = await store.dispatch('validate');
+  if (isLogin) {
+    // 如果是登录
+    if (to.name === 'login') {
+      next('/profile');
+    } else {
+      next();
+    }
+  } else {
+    const flag = to.matched.some(item => item.meta.needLogin);
+    if (flag) {
+      next('/login');
+    } else {
+      next();
+    }
+  }
+});
+```
+
 ::: tip
 验签算法实现方案
 :::
+
+
+```js
+// 使用express实现
+let express = require('express');
+let app = express();
+let bodyParser = require('body-parser');
+let jwt = require('jsonwebtoken');
+app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    if(req.method.toLowerCase() === 'options'){
+        return res.end();
+    }
+    next();
+})
+app.use(bodyParser.json());
+let secret = 'secret';
+app.get('/test',(req,res)=>{
+    res.send({
+        code:1,
+        data:'用户名不存在'
+    })
+})
+app.post('/login',(req,res)=>{
+   let {username} = req.body;
+   if(username === 'admin'){ // 如果访问的是admin 种植cookie
+        res.json({
+            code:0,
+            username:'admin',
+            token:jwt.sign({username:'admin'},secret,{
+                expiresIn:20
+            })
+        })
+   }else{
+       res.json({
+           code:1,
+           data:'用户名不存在'
+       })
+   }
+});
+app.get('/validate',(req,res)=>{
+    let token = req.headers.authorization;
+    jwt.verify(token,secret,(err,decode)=>{ // 验证token的可靠性
+        if(err){
+            return res.json({
+                code:1,
+                data:'token失效了'
+            })
+        }else{
+            res.json({
+                username:decode.username,
+                code:0, // 延长token的过期时间
+                token:jwt.sign({username:'admin'},secret,{
+                    expiresIn:20
+                })
+            })
+        }
+    });
+});
+app.listen(3000);
+```
+### NODE服务实现步骤
+
+- 1. 使用express，启动一个http服务
+- 2. 配置CORS
+- 3. 引入依赖包： jsonwebtoken
+
+
 
 ```php
 // php实现
@@ -46,10 +154,6 @@ HMACSHA256(
     
 
 </php>
-```
-```js
-// 使用express实现
-
 ```
 
 ### 缺点： 
@@ -72,6 +176,7 @@ HMACSHA256(
 
 
 
-[JSON Web Token 入门教程 - 阮一峰](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)
-[]()
-[]()
+[JSON Web Token 入门教程 - 阮一峰](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)   
+[认识JWT](https://www.cnblogs.com/cjsblog/p/9277677.html)
+[不要用JWT替代session管理](https://juejin.im/post/5b3b870a5188251ac85826b8)
+[讲真，别再使用JWT了](http://insights.thoughtworkers.org/do-not-use-jwt-anymore/)  

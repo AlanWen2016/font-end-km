@@ -156,31 +156,72 @@ SVG
 .
 
 #### 33. 通过模糊来弱化背景
-#### 34. 交互式的图片对比控件
+#### 35. 交互式的图片对比控件
 
 ## 第七章 结构和布局
+#### 36. 自适应内部元素
+#### 37. 精确控制表格列宽
+#### 38. 根据兄弟元素的数量来设置样式
+#### 39. 满幅的背景，定宽的内容
+#### 40. 垂直居中
 
+- 基于绝对定位解决方案
+```css
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+- 基于视口的解决方案
+```css
+main {
+    width: 18em;
+    padding: 1em 1.5em;
+    margin: 50vh auto 0;
+    transform: translateY(-50%);
+}
+```
+- flex布局方案 
+```css
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
 
+#### 41. 紧贴底部的页脚
 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
-#### 
+```
+#wrapper {
+    min-height: calc(100vh - 7em);
+}
+```
+
+## 第八章
+
+#### 42. 缓动效果
+```css
+@keyframes bounce {
+    60%, 80%, to {
+    transform: translateY(400px);
+    animation-timing-function: ease;
+    }
+    70% { transform: translateY(300px); }
+    90% { transform: translateY(360px); }
+}
+.ball {
+    animation: bounce 3s cubic-bezier(.1,.25,1,.25);
+}
+```
+
+#### 43. 逐帧动画
+
+#### 44. 闪烁效果
+#### 45. 打字动画
+#### 46. 状态平滑的动画
+#### 47. 沿环形路径平移的动画
+
+// TODO, 好难，未完待续

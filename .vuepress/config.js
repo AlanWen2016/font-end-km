@@ -23,7 +23,8 @@ module.exports = {
         title: 'HTML',
         collapsable: false,
         children: [
-          '/guide/html/test'
+          '/guide/html/test',
+          '/guide/html/canvas',
         ]
       },
       {
