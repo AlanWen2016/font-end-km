@@ -1,6 +1,6 @@
 ---
 home: true
-actionText: 快速上手 →
+actionText: 独上高楼 →
 actionLink: /guide/
 features:
 - title: 简洁至上

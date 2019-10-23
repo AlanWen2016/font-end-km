@@ -17,6 +17,8 @@ module.exports = {
           ['/guide/javascript/npm', 'npm发布'],
           ['/guide/javascript/module', '模块化'],
           ['/guide/javascript/jwt', 'JSON WEB令牌'],
+          ['/guide/javascript/node', 'Node'],
+          ['/guide/javascript/typescript', 'TypeScript'],
         ]
       },
       {
@@ -42,6 +44,7 @@ module.exports = {
         collapsable: false,
         children: [
           ['/guide/vue/jsx', 'render函数和jsx'],
+          ['/guide/vue/vue', 'VUE杂谈'],
         ]
       },
       {

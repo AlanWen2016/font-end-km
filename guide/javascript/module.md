@@ -240,6 +240,6 @@ console.log(mod.counter); // 3
 
 
 [1]. [CommonJS规范-阮一峰](http://javascript.ruanyifeng.com/nodejs/module.html#toc4)  
-[2]. [AMD规范-阮一峰](http://www.ruanyifeng.com/blog/2012/11/require_js.html)   
-[3]. [JS模块化工具requirejs教程](https://www.runoob.com/w3cnote/requirejs-tutorial-1.html)
+[2]. [AMD规范-阮一峰](http://www.ruanyifeng.com/blog/2012/11/require_js.html)    
+[3]. [JS模块化工具requirejs教程](https://www.runoob.com/w3cnote/requirejs-tutorial-1.html)    
 [4]. [ECMASCRIPT 6入门](http://es6.ruanyifeng.com/#docs/module-loader)

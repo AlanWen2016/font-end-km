@@ -43,6 +43,28 @@ let	p =	new	Promise(((resolve,reject) => {
     console.log('Resolved.',a);
   });
   console.log(a.resolve(234));
-  
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTY5NDg5NDc0LCJleHAiOjE1Njk0ODk0OTR9.Knyz2k-o2Yz4CaEaPUvbVfHfMrvtnWGCsF3Hg1--4nc
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTY5NDg5NDY5LCJleHAiOjE1Njk0ODk0ODl9.Yx5WYYW1iLJbBFUp6EZBB4hj5rtwrQrqHD6jGktX9-s
+
+
+
+function solution(A) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    if(Object.prototype.toString.call(A) === '[object Array]'){
+        A.sort(function(a, b){
+            return a-b
+        })
+    }
+    var result = 1;
+    for(var i =0; i< A.lenght; i++){
+        if(A[i] > 0){
+            result = A[i] + 1;
+            if(result < A[i+1]){
+                return result
+            }
+        }
+    }
+    console.log(result)
+}
+
+
+let ret = solution([6,1,3,6])
+console.log(ret)
