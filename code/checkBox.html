@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title></title>
+
+</head>
+
+<style type="text/css">
+    /*复选框*/
+
+    .gcs-checkbox {
+
+        display: none;
+
+    }
+
+    .gcs-checkbox+label {
+
+        background-color: white;
+
+        border-radius: 0px;
+
+        border: 1px solid #d3d3d3;
+
+        width: 20px;
+
+        height: 20px;
+
+        display: inline-block;
+
+        text-align: center;
+
+        vertical-align: bottom;
+
+        line-height: 20px;
+
+    }
+
+    .gcs-checkbox+label:hover {
+
+        cursor: pointer;
+
+        border: 1px solid #2783FB;
+
+    }
+
+    .gcs-checkbox:checked+label {
+
+        background-color: #eee;
+
+        background: #2783FB;
+
+    }
+
+    .gcs-checkbox:checked+label:after {
+
+        content: "\2714";
+
+        color: white;
+
+    }
+
+    /*单选按钮*/
+
+    .gcs-radio {
+
+        display: none;
+
+    }
+
+    .gcs-radio+label {
+
+        width: 20px;
+
+        height: 20px;
+
+        line-height: 20px;
+
+        display: inline-block;
+
+        text-align: center;
+
+        vertical-align: bottom;
+
+        border: 1px solid gray;
+
+        border-radius: 50%;
+
+    }
+
+    .gcs-radio+label:hover {
+
+        border: 1px solid #2783FB;
+
+        cursor: pointer;
+
+    }
+
+    .gcs-radio:checked+label {
+
+        background: #2783FB;
+
+        border: 1px solid #2783FB;
+
+    }
+
+    .gcs-radio:checked+label:after {
+
+        content: "\2022";
+
+        font-size: 35px;
+
+        color: white;
+
+    }
+</style>
+
+<body>
+
+    <h2>复选框</h2>
+
+    <div>
+
+        语文<input type="checkbox" id="语文" class="gcs-checkbox">
+
+        <label for="语文"></label>
+
+        数学<input type="checkbox" id="数学" class="gcs-checkbox">
+
+        <label for="数学"></label>
+
+        英语<input type="checkbox" id="英语" class="gcs-checkbox">
+
+        <label for="英语"></label>
+
+        计算机<input type="checkbox" id="计算机" class="gcs-checkbox">
+
+        <label for="计算机"></label>
+
+    </div> <br />
+
+    <hr />
+
+    <h2>单选按钮</h2>
+
+    <div>
+
+        男<input type="radio" name="sex" class="gcs-radio" id="男" />
+
+        <label for="男"></label>
+
+        女<input type="radio" name="sex" class="gcs-radio" id="女" />
+
+        <label for="女"></label>
+
+    </div>
+
+    <hr />
+
+</body>
+
+</html>
