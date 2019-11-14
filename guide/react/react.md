@@ -1,5 +1,19 @@
 # React
 
+React是采用声明式，高效且灵活的构建页面框架。
+
+>声明式VS命令式编程 
+- 命令式编程：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。
+- 声明式编程：告诉“机器”你想要的是什么(what)，让机器想出如何去做(how)。
+```js
+// 命令式
+var makes = [];
+for (i = 0; i < cars.length; i++) {
+  makes.push(cars[i].make);
+}
+// 声明式
+var makes = cars.map(function(car){ return car.make; });
+```
 
 ## JSX 
 React认为渲染逻辑本质上和UI逻辑内在耦合。
@@ -48,6 +62,47 @@ class Clock extends React.Component {
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 
+
+
+
+## react教程- 井字游戏
+
+### react组件声明
+```js
+class ShoppingList extends React.Component {
+    render() {
+        return (
+            <div className="shopping-list">
+                <h1>Shopping List for {this.props.name}</h1>
+                <ul>
+                    <li>Instagram</li>
+                    <li>WhatsApp</li>
+                    <li>Oculus</li>
+                </ul>
+            </div>
+        );
+    }
+}
+```
+
+#### 1. 组件拆分
+- Square 井字棋的每个格子
+- Board  棋盘 
+- Game   在页面为棋盘预留一个占位
+
+#### 2. 交互逻辑
+- 使用Props传递数据
+- 在声明的组件内，设置组件自身的状态
+```js
+class ShopList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      value: 1234
+    }
+  }
+}
+```
 
 
 
