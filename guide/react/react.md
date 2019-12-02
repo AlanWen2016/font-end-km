@@ -91,18 +91,21 @@ class ShoppingList extends React.Component {
 - Game   在页面为棋盘预留一个占位
 
 #### 2. 交互逻辑
-- 使用Props传递数据
-- 在声明的组件内，设置组件自身的状态
+- 使用Props传递数据。 在子组件中使用this.props获取父组件到state属性和方法
+- 在声明的组件内，设置组件自身的状态, 在构造函数里设置state
 ```js
 class ShopList extends React.Component {
   constructor() {
-    super();
+    super(); // 使用javascript classes的组件中，当子类继承父类方法，必须执行此方法super,才能获取正确的this绑定
     this.state = {
-      value: 1234
+      value: null
     }
   }
 }
 ```
+#### React中到不可变性 
+在组件内修改state对象和属性可以使用Object.asign, Array.slice方法进行浅拷贝
+
 
 
 

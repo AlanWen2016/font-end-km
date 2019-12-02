@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+</head>
+<body>
+    <div id="uploader">
+        <input id="file" type="file">
+    </div>  
+    <script>
+        var eleFile = document.querySelector('#file');
+        eleFile.addEventListener('change', function (event) {
+    file = event.target.files[0];
+    console.log(event)
+    // 选择的文件是图片 
+});
+    </script>
+</body>
+</html>
