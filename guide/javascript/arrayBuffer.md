@@ -1,5 +1,9 @@
 # 文件上传与二进制数组
 
+先思考几个问题：
+1. 如何上传一张图片，并且预览？
+2. 前端上传图片如何压缩？
+
 
 ## 文件上传 input
 先看一个文件上传，前端压缩的例子,复习一下基础知识
@@ -99,7 +103,6 @@ JS通过File对象来获取文件信息。一般，File对象来源与input文�
 ### 构造函数File
 > 返回一个新构建的文件对象（File）
 File对象的属性方法如下，从文件对象信息里，可以获取上传的文件名称、文件大小（单位：字节）、文件类型。__proto__表示文件原型链直接文件对象File。
-
 ```js
 {
     lastModified: 1572312630000
@@ -112,25 +115,133 @@ File对象的属性方法如下，从文件对象信息里，可以获取上传�
 }
 ```
 
-### Blog
+### Blob
 Blob 对象表示一个不可变、原始数据的类文件对象。Blob 表示的不一定是JavaScript原生格式的数据。File 接口基于Blob，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
 
+### Blog对象
 
+> 构造函数Blob, 返回一个新的blob对象
+var aBlob = new Blob( array, options )
 
+- array 是一个由ArrayBuffer, ArrayBufferView, Blob, DOMString 等对象构成的 Array ，或者其他类似对象的混合体，它将会被放进 Blob。DOMStrings会被编码为UTF-8。
+
+- option 用于指定MIME类型和控制结束符字符串\n以什么形式写入
+
+```js
+option = {
+    type: 'text/html',
+    endings: 'transparent' // transparent表示保留原样，native表示改为适应操作系统
+
+}
+```
+使用示例
+```js
+// demo
+var aFileParts = ['<a id="a"><b id="b">hey!</b></a>']; // 一个包含DOMString的数组
+var oMyBlob = new Blob(aFileParts, {type : 'text/html'}); // 得到 blob
+
+```
+
+#### Blog对象包含属性方法
+
+- type
+- size
+- slice()
+- stream()
+- text()
+- arrayBuffer()
 
 
 ### 处理File/Blog对象的Api
 
 FileReader, URL.createObjectURL(), createImageBitmap(), 及 XMLHttpRequest.send() 都能处理 Blob 和 File
 
+#### FileReader
+
+FileReader对象，提供js读取储存在用户计算机上的文件。下面是一个文件预览的示例代码，将Files对象转成dataUrl。
+```js
+function handleFiles(files) {
+    var preview = document.querySelector('#preview');
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageType = /^image\//;
+    
+    if (!imageType.test(file.type)) {
+      continue;
+    }
+    
+    var img = document.createElement("img");
+    img.classList.add("obj");
+    img.file = file;
+    preview.appendChild(img); // 假设"preview"就是用来显示内容的div
+    
+    var reader = new FileReader();
+    reader.onload = (function(aImg) {
+         return function(e) { 
+                aImg.src = e.target.result; 
+             };
+          })(img);
+    reader.readAsDataURL(file); // 将文件对象读成base64用于展示
+  }
+}
+```
+
+> 文件上传是上传文件对象File/Blog对象，base64字符串要如何转成文件对象？
+```js
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
+```
+```js
+// 一个1*1像素的黑色图片
+let dataUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+function transformBase64ToFile(dataUrl){
+    let base64Arr = dataUrl.split(',')
+    // 获取mime类型
+    let mime = base64Arr[0].match(/:(.*?);/)[1]
+    // 转为二进制
+    let bytes = window.atob(base64Arr[1].replace(/\s/g, ''))
+    let n = bytes.length
+    // 转成二进制数组
+    let byteArray = new Uint8Array(n)
+    while(n--){
+        byteArray[n] = bytes.charCodeAt(n)
+    }
+    // btyeArray = Uint8Array(35) [71, 73, 70, 56, 57, 97, 1, 0, 1, 0, 128, 0, 0, 5, 4, 4, 0, 0, 0, 44, 0, 0, 0, 0, 1, 0, 1, 0, 0, 2, 2, 68, 1, 0, 59]
+0: 71
+    var file = new Blob([byteArray], {type: mime})
+    file.lastModifiedDate = new Date()
+    file.name = 'file-name' // 
+    return file
+}
+
+// 将Blob对象转换为base64,验证一个
+let file = transformBase64ToFile(dataUrl)
+let preview = document.querySelector('#preview')
+var img = document.createElement("img");
+    img.classList.add("obj");
+    img.file = file;
+    preview.appendChild(img); // 假设"preview"就是用来显示内容的div
+    var reader = new FileReader();
+    reader.onload = (function(aImg) {
+         return function(e) { 
+                aImg.src = e.target.result; 
+             };
+          })(img);
+    reader.readAsDataURL(file); // 将文件对象读成base64用于展示
+```
 
 ## ArrayBuffer
+ArrayBuffer对象、TypedArray视图和DataView视图是 JavaScript 操作二进制数据的一个接口。
 
+ArrayBuffer有两种视图，一种是TypedArray视图，另一种是DataView视图。前者的数组成员都是同一个数据类型，后者的数组成员可以是不同的数据类型。
 
-## 二进制转base64之间的转化
+## base64 编码与解码
+- btoa：从 String 对象中创建一个 base-64 编码的 ASCII 字符串，其中字符串中的每个字符都被视为一个二进制数据字节
+atob() 对经过 base-64 编码的字符串进行解码
+```
+let encodedData = window.btoa("Hello, world"); // base64 编码 转ACII
+let decodedData = window.atob(encodedData); // 解码 成 ASCII 
+```
 
-
-## 
 
 
 ## 附录
@@ -158,10 +269,10 @@ application/octet-stream
 application/pdf
 :::
 
-
-
-
+-------------
 
 参考： 
 
-[HTML5 file API加canvas实现图片前端JS压缩并上传](https://www.zhangxinxu.com/wordpress/2017/07/html5-canvas-image-compress-upload/)
+1. [HTML5 file API加canvas实现图片前端JS压缩并上传](https://www.zhangxinxu.com/wordpress/2017/07/html5-canvas-image-compress-upload/)  
+2. [在web应用程序中使用文件](https://developer.mozilla.org/zh-CN/docs/Web/API/File/Using_files_from_web_applications)  
+3. [二进制数组-阮一峰](https://es6.ruanyifeng.com/?search=charcodeat&x=0&y=0#docs/arraybuffer)

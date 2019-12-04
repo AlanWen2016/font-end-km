@@ -19,14 +19,15 @@ module.exports = {
           ['/guide/javascript/jwt', 'JSON WEB令牌'],
           ['/guide/javascript/node', 'Node'],
           ['/guide/javascript/typescript', 'TypeScript'],
+          ['/guide/javascript/arrayBuffer', '文件上传'],
+
         ]
       },
       {
         title: 'HTML',
         collapsable: false,
         children: [
-          '/guide/html/test',
-          '/guide/html/canvas',
+         '/guide/html/canvas',
         ]
       },
       {

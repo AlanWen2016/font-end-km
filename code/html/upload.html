@@ -10,13 +10,51 @@
     <div id="uploader">
         <input id="file" type="file">
     </div>  
+    <div id="preview"></div>
     <script>
         var eleFile = document.querySelector('#file');
         eleFile.addEventListener('change', function (event) {
     file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(img){
+        console.log(img, 'dataUrl')
+    };
+    reader.readAsDataURL(file);
     console.log(event)
     // 选择的文件是图片 
 });
+let dataUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+function transformBase64ToFile(dataUrl){
+    let base64Arr = dataUrl.split(',')
+    let mime = base64Arr[0].match(/:(.*?);/)[1]
+    let bytes = window.atob(base64Arr[1].replace(/\s/g, ''))
+    console.log(1234,bytes)
+    let n = bytes.length
+    let byteArray = new Uint8Array(n)
+    while(n--){
+        byteArray[n] = bytes.charCodeAt(n)
+    }
+    console.log(byteArray)  
+    debugger
+    var file = new Blob([byteArray], {type: mime})
+    file.lastModifiedDate = new Date()
+    file.name = 'file-name' // 
+    return file
+}
+
+let file = transformBase64ToFile(dataUrl)
+let preview = document.querySelector('#preview')
+var img = document.createElement("img");
+    img.classList.add("obj");
+    img.file = file;
+    preview.appendChild(img); // 假设"preview"就是用来显示内容的div
+    var reader = new FileReader();
+    reader.onload = (function(aImg) {
+         return function(e) { 
+                aImg.src = e.target.result; 
+             };
+          })(img);
+    reader.readAsDataURL(file); // 将文件对象读成base64用于展示
     </script>
 </body>
 </html>
