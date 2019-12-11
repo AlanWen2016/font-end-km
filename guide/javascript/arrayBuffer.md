@@ -23,6 +23,7 @@
 
 点击上传一张图片，通过打印输出我们得到文件相关信息。
 <img src="../../assets/image/js/files.png" width="500" hegiht="313" align=center />
+  
 给input标签绑定change事件，并获取上传的文件对象，前端对文件的操作就是操作这个文件对象。
 
 
@@ -234,6 +235,16 @@ ArrayBuffer对象、TypedArray视图和DataView视图是 JavaScript 操作二进
 
 ArrayBuffer有两种视图，一种是TypedArray视图，另一种是DataView视图。前者的数组成员都是同一个数据类型，后者的数组成员可以是不同的数据类型。
 
+区别： 
+
+TyptedArray视图：
+- 数组成员都是同一种数据类型
+- 用于网卡、声卡之类的本机设备传送数据，所以使用本机字节序
+
+DataView视图：
+- 数组成员可以是不同数据类型
+- 用于网络设备传输数据，大端字节序或小端字节序
+
 ## base64 编码与解码
 - btoa：从 String 对象中创建一个 base-64 编码的 ASCII 字符串，其中字符串中的每个字符都被视为一个二进制数据字节
 atob() 对经过 base-64 编码的字符串进行解码
@@ -241,7 +252,36 @@ atob() 对经过 base-64 编码的字符串进行解码
 let encodedData = window.btoa("Hello, world"); // base64 编码 转ACII
 let decodedData = window.atob(encodedData); // 解码 成 ASCII 
 ```
+### URL.createObjectURL
+```js
+function handleFiles(files) {
+  if (!files.length) {
+    fileList.innerHTML = "<p>No files selected!</p>";
+  } else {
+    fileList.innerHTML = "";
+    const list = document.createElement("ul");
+    fileList.appendChild(list);
+    for (let i = 0; i < files.length; i++) {
+      const li = document.createElement("li");
+      list.appendChild(li);
+      
+      const img = document.createElement("img");
+      img.src = window.URL.createObjectURL(files[i]);
+      img.height = 60;
+      img.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      }
+      li.appendChild(img);
+      const info = document.createElement("span");
+      info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
+      li.appendChild(info);
+    }
+  }
+}
+```
 
+
+<img src="../../assets/image/js/arraybuffer.png" width="500" hegiht="313" align=center />
 
 
 ## 附录
@@ -253,20 +293,20 @@ let decodedData = window.atob(encodedData); // 解码 成 ASCII
 MIME TYPE一个用来标识文件、字节流、文档性质和格式的标准。浏览器通常使用MIME类型（而不是文件扩展名）来确定如何处理URL，因此Web服务器在响应头中添加正确的MIME类型非常重要。
 常见的mime type有：
 ::: tip 
-text/plain
-text/html
-image/jpeg
-image/png
-audio/mpeg
-audio/ogg
-audio/*
-video/mp4
+text/plain  
+text/html  
+image/jpeg  
+image/png  
+audio/mpeg  
+audio/ogg  
+audio/*  
+video/mp4  
 application/*
-application/json
-application/javascript
-application/ecmascript
-application/octet-stream
-application/pdf
+application/json  
+application/javascript  
+application/ecmascript  
+application/octet-stream  
+application/pdf  
 :::
 
 -------------
