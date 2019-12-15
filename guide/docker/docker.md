@@ -83,7 +83,7 @@ docker的理念： 一处封装，到处运行
 4.部署快
 
 
-轻量，简单，centos镜像一百多M
+轻量，简单，centos镜像一百多MB
 
 
 ### Docker的架构图
@@ -108,7 +108,8 @@ images
 ## docker命令
 
 ```
-docker --help
+## 帮助命令， 获取各种命令操作和意义
+docker --help 
 
 
 ## List Docker CLI commands
@@ -196,11 +197,14 @@ docker images
 // 查找镜像
 docker search ...
 
+// 按照点赞数获取查询列表,筛选
+docker search -s 30 tomcat
+
 // 下载镜像,使用tag确定版本
 docker pull tomcat  //等价于 docker pull tomcat:latest
 
 // 删除镜像
-docker rmi hello-world
+docker rmi hello-world // docker rmi hello-world -f 
 
 docker start imageId
 
@@ -213,17 +217,48 @@ docker kill
 
 // Ctrl + P + Q 退出当前
 
+// 重新登陆进入容器
+bash-3.2$ docker exec -it a1f0a804d17e /bin/bash
+
 ```
+
+## 阿里云容器镜像加速
+1. 获取阿里云容器镜像加速的地址
+
 
 
 
 ## 装centos镜像
+- 1. 新建并启动容器 
+1.1 拉取镜像 docker pull centos 
+1.2 创建容器并启动 docker run -it imageID
+- 2. 列出当前运行的容器  docker ps
+- 3. 退出容器
+3.1 停止并退出 exit
+3.2 容器不停止退出 ctrl+P+Q
+- 4. 启动容器 dockcer start CONTAINER ID/NAME
+- 5. 重启容器、停止同期 docker stop CONTAINER ID/NAME
+- 6. 删除停止容器 dockern rm container ID
+
 
 ```
-//
+docker pull centos
+
 docker run -it --name mycentos
 ```
 
+### docker [option] IMAGE [command][args] 
+ 
+
+ > option选项的参数
+
+ - name 为容器指定一个名称
+ - d 后台启动一个容器，并返回容器id,即守护式容器
+ - i 交互式启动容器，通常与t连用
+ - t 为容器重新分配一个伪终端
+ - P 随机端口映射
+ - p 指定端口映射  hostport: docker container port
+ 
 // 
 ```
 docker run -d centos /bin/sh -c "while true; do echo hello docker;sleep 2; done"
@@ -231,12 +266,30 @@ docker run -d centos /bin/sh -c "while true; do echo hello docker;sleep 2; done"
 
 ## 容器镜像
 
+Docker镜像是什么：
+
+镜像： 一种轻量的可执行的独立软件包，用来打包运行和环境和基于运行环境开发的软件， 它包含运行某个软件所需要的所有内容，代码、运行时、环境变量和配置文件
+联合文件系统 UnionFS： 一种分层轻量高性能的的文件系统，对文件系统的修改作为一次提交来一层层叠加，可以将不同的目录挂载到同一虚拟文件系统下。
+联合文件系统是docker镜像的基础，镜像可以通过分层进行继承，基于基础镜像制作各类应用镜像。
+
+Docker镜像加载原理：
+Docker镜像是由一层层的文件系统组成，主要是：
+1. bootfs: bootloader(boot加载器)和kernel（内核）
+2. rootfs： 各种不同操作文件的发行版本
+
+为什么docker镜像可以很小？
+不同发行版本的linux公用bootfs
+
+
+
 - 自定义镜像
+提交容器副本，使之成为新的容器镜像
 ```
-// 提交镜像
+// 提交镜像 docker commit -m "描述信息" -a "作者" 容器ID  目标镜像名
 docker commit 
 
 ```
+
 
 ## docker容器数据卷
 
@@ -277,7 +330,7 @@ Notes:
 ## 使用dockerfile创建镜像
 
 
-Dockerfile是一个文本格式的配置文件，用户可以使用dockerfile来快速自定义的镜像。
+Dockerfile是一个文本格式的配置文件，用户可以使用dockecrfile来快速自定义的镜像。
 
 构建步骤： dockerfile编写-> docker build -> docker run 
 重点：
@@ -296,7 +349,18 @@ From centos:
 
 ```
 
+### 使用docker开发web项目实践：
+
+#### 搭建Centos-LNMP
+
+[阿里云LNMP](https://help.aliyun.com/document_detail/97251.html)
 
 
 
 
+
+
+wget -i -c https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
+
+
+yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml php72w-pecl-redis php72w-pecl-memcached

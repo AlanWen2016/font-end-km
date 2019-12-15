@@ -70,3 +70,30 @@ p{
 ::: tip 
 transition过渡，在给定的持续时间内平滑地更改属性值（从一个值到另一个值），也就是只需要指定开始与结束的参数，参数改变时就触发动画。
 :::
+
+## Transition过渡
+
+过渡出现背景： CSS3以前，css是没有时间轴的概念，属性的状态变化都是即时完成。要实现属性从一个状态到另一个状态到变化，可以使用transition。
+- 如何描述状态过渡？
+以高度从0px到100px为例子
+1. 过渡时长 transition-duration
+2. 执行过渡到开始时间 transition-delay
+3. 过渡过程的速度控制 transition-timing-function
+4. 是哪个属性要执行过渡变化 transition-property
+```css
+img{
+    transition-property: height;
+    transition-duration: 1s;
+    transition-delay: 1s;
+    transition-timing-function: ease;
+}
+```
+- 过渡的简写形式： transition: 1s 1s height ease
+
+### transition的局限
+
+- 需要事件触发，没法在网页加载是自动发生
+- 一次性不可重复
+- 只能一定起始状态和结束状态
+- 一条规则只能定义一个属性，不能定义多个属性
+
