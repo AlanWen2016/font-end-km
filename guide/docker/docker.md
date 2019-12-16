@@ -59,6 +59,10 @@ docker run hello-world
 ```
 
 
+## window下使用boot2docker
+
+boot2docker 是早期的 window 下 docker 客户端工具，不需要你的 windows 支持 hyper-v 就可以运行。相比 docker for windows， boot2docker 属于轻量级的 docker 客户端工具。
+
 ### docker的镜像：
  运行文档、配置环境、环境、运行依赖包、操作系统发行版、内核
 
@@ -223,7 +227,7 @@ bash-3.2$ docker exec -it a1f0a804d17e /bin/bash
 ```
 
 ## 阿里云容器镜像加速
-1. 获取阿里云容器镜像加速的地址
+docker1.阿里云容器镜像服务提供了官方的镜像站点，从而加速官方镜像的下载。 [获取阿里云容器镜像加速的地址](https://help.aliyun.com/document_detail/60750.html)
 
 
 
