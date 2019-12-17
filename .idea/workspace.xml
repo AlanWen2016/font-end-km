@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5565fa60-7ffb-4e24-9ff7-ed86b376cfb4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/guide/javascript/module.md" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.vuepress/config.js" afterPath="$PROJECT_DIR$/.vuepress/config.js" />
-      <change beforePath="$PROJECT_DIR$/content.md" afterPath="$PROJECT_DIR$/content.md" />
-      <change beforePath="$PROJECT_DIR$/guide/javascript/npm.md" afterPath="$PROJECT_DIR$/guide/javascript/npm.md" />
+      <change beforePath="$PROJECT_DIR$/guide/docker/docker.md" afterPath="$PROJECT_DIR$/guide/docker/docker.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,37 +20,9 @@
         <entry file="file://$PROJECT_DIR$/guide/javascript/npm.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="4508">
+              <first_editor relative-caret-position="5292">
                 <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="5" />
-                <folding>
-                  <marker date="1568205800434" expanded="true" signature="778:856" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="875:1227" ph="{&quot;mode&quot;: 'production'...}" />
-                  <marker date="1568205800434" expanded="true" signature="936:1095" ph="{&quot;filename&quot;: 'index.js'...}" />
-                  <marker date="1568205800434" expanded="true" signature="1108:1223" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="1625:1811" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="1629:1808" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="1653:1803" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-                  <marker date="1568205800434" expanded="true" signature="1670:1768" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-                  <marker date="1568205800434" expanded="true" signature="1868:2184" ph="{...}" />
-                  <marker date="1568205800434" expanded="true" signature="1885:2161" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="1895:2152" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="1931:2141" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-                  <marker date="1568205800434" expanded="true" signature="1956:2092" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-                  <marker date="1568205800434" expanded="true" signature="2178:2180" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="2244:2598" ph="{...}" />
-                  <marker date="1568205800434" expanded="true" signature="2265:2586" ph="[...]" />
-                  <marker date="1568205800434" expanded="true" signature="2281:2572" ph="{...}" />
-                  <marker date="1568205800434" expanded="true" signature="2395:2556" ph="{&quot;loader&quot;: 'babel-loader'...}" />
-                  <marker date="1568205800434" expanded="true" signature="2466:2538" ph="{...}" />
-                  <marker date="1568205800434" expanded="true" signature="2707:2729" ph="{...}" />
-                  <marker date="1568205800434" expanded="true" signature="2747:2752" ph="{&quot;add&quot;: add...}" />
-                  <marker date="1568205800434" expanded="true" signature="2850:2894" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="2850:2917" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="2850:2923" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="2850:2957" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="2850:2996" ph="//..." />
-                  <marker date="1568205800434" expanded="true" signature="3420:3446" ph="..." />
-                </folding>
+                <folding />
               </first_editor>
               <second_editor />
             </state>
@@ -64,22 +32,55 @@
       <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.vuepress/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="459">
               <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="module.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="module.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/guide/javascript/module.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="575">
-                <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="324">
+                <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
                 <folding>
-                  <marker date="1568280605837" expanded="true" signature="569:594" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="501:520" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="2183:2266" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="2211:2234" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="2245:2263" ph="{&quot;add&quot;: add...}" />
+                  <marker date="1576380769032" expanded="true" signature="2328:2353" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="3203:3205" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="3227:3234" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="3626:3639" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="4260:4328" ph="//..." />
+                  <marker date="1576380769032" expanded="true" signature="4389:4405" ph="{...}" />
+                  <marker date="1576380769032" expanded="true" signature="4423:4472" ph="{&quot;counter&quot;: counter...}" />
                 </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.vuepress/dist/guide/docker/docker.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/guide/docker/docker.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="405">
+                <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+                <folding />
               </first_editor>
               <second_editor />
             </state>
@@ -90,8 +91,8 @@
         <entry file="file://$PROJECT_DIR$/content.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="1150">
-                <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
+              <first_editor relative-caret-position="1350">
+                <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -121,6 +122,7 @@
         <option value="$PROJECT_DIR$/.vuepress/config.js" />
         <option value="$PROJECT_DIR$/content.md" />
         <option value="$PROJECT_DIR$/guide/javascript/module.md" />
+        <option value="$PROJECT_DIR$/guide/docker/docker.md" />
       </list>
     </option>
   </component>
@@ -131,7 +133,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-2084" />
+    <option name="y" value="344" />
     <option name="width" value="976" />
     <option name="height" value="523" />
   </component>
@@ -150,8 +153,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,8 +192,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/wenlinjian/tgl/hahaha/tgl_oa_page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="SearchEverywhereHistoryKey" value="docker.md&#9;FILE&#9;file://C:/WebDevelop/github/font-end-km/guide/docker/docker.md&#10;docker.&#9;FILE&#9;file://C:/WebDevelop/github/font-end-km/.vuepress/dist/guide/docker/docker.html" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -220,24 +224,24 @@
       <workItem from="1568192847892" duration="9687000" />
       <workItem from="1568251912564" duration="10364000" />
       <workItem from="1568598810100" duration="167000" />
+      <workItem from="1576401881188" duration="667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20218000" />
+    <option name="totallyTimeSpent" value="20885000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-2409" y="-9" width="2418" height="1318" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16948257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13521482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1127907" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08584071" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -260,6 +264,59 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/guide/javascript/npm.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="5292">
+            <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vuepress/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1350">
+            <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/javascript/module.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="675">
+            <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <folding>
+              <marker date="1576380769032" expanded="true" signature="501:520" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2183:2266" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2211:2234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2245:2263" ph="{&quot;add&quot;: add...}" />
+              <marker date="1576380769032" expanded="true" signature="2328:2353" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3203:3205" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3227:3234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3626:3639" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4260:4328" ph="//..." />
+              <marker date="1576380769032" expanded="true" signature="4389:4405" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4423:4472" ph="{&quot;counter&quot;: counter...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.vuepress/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -273,35 +330,7 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="4508">
             <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="5" />
-            <folding>
-              <marker date="1568205800434" expanded="true" signature="778:856" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="875:1227" ph="{&quot;mode&quot;: 'production'...}" />
-              <marker date="1568205800434" expanded="true" signature="936:1095" ph="{&quot;filename&quot;: 'index.js'...}" />
-              <marker date="1568205800434" expanded="true" signature="1108:1223" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1625:1811" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1629:1808" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1653:1803" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1670:1768" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1868:2184" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="1885:2161" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1895:2152" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1931:2141" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1956:2092" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="2178:2180" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2244:2598" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2265:2586" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2281:2572" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2395:2556" ph="{&quot;loader&quot;: 'babel-loader'...}" />
-              <marker date="1568205800434" expanded="true" signature="2466:2538" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2707:2729" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2747:2752" ph="{&quot;add&quot;: add...}" />
-              <marker date="1568205800434" expanded="true" signature="2850:2894" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2917" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2923" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2957" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2996" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="3420:3446" ph="..." />
-            </folding>
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -324,7 +353,17 @@
           <first_editor relative-caret-position="713">
             <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
             <folding>
-              <marker date="1568280605837" expanded="true" signature="569:594" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="501:520" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2183:2266" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2211:2234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2245:2263" ph="{&quot;add&quot;: add...}" />
+              <marker date="1576380769032" expanded="true" signature="2328:2353" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3203:3205" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3227:3234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3626:3639" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4260:4328" ph="//..." />
+              <marker date="1576380769032" expanded="true" signature="4389:4405" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4423:4472" ph="{&quot;counter&quot;: counter...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -336,35 +375,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1568205800434" expanded="true" signature="778:856" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="875:1227" ph="{&quot;mode&quot;: 'production'...}" />
-              <marker date="1568205800434" expanded="true" signature="936:1095" ph="{&quot;filename&quot;: 'index.js'...}" />
-              <marker date="1568205800434" expanded="true" signature="1108:1223" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1625:1811" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1629:1808" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1653:1803" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1670:1768" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1868:2184" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="1885:2161" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1895:2152" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1931:2141" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1956:2092" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="2178:2180" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2244:2598" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2265:2586" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2281:2572" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2395:2556" ph="{&quot;loader&quot;: 'babel-loader'...}" />
-              <marker date="1568205800434" expanded="true" signature="2466:2538" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2707:2729" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2747:2752" ph="{&quot;add&quot;: add...}" />
-              <marker date="1568205800434" expanded="true" signature="2850:2894" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2917" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2923" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2957" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2996" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="3420:3446" ph="..." />
-            </folding>
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -380,7 +391,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.vuepress/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="459">
           <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding />
         </state>
@@ -389,8 +400,8 @@
     <entry file="file://$PROJECT_DIR$/content.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="1150">
-            <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
+          <first_editor relative-caret-position="1350">
+            <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
             <folding />
           </first_editor>
           <second_editor />
@@ -400,37 +411,9 @@
     <entry file="file://$PROJECT_DIR$/guide/javascript/npm.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="4508">
+          <first_editor relative-caret-position="5292">
             <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="5" />
-            <folding>
-              <marker date="1568205800434" expanded="true" signature="778:856" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="875:1227" ph="{&quot;mode&quot;: 'production'...}" />
-              <marker date="1568205800434" expanded="true" signature="936:1095" ph="{&quot;filename&quot;: 'index.js'...}" />
-              <marker date="1568205800434" expanded="true" signature="1108:1223" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1625:1811" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1629:1808" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1653:1803" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1670:1768" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1868:2184" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="1885:2161" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1895:2152" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="1931:2141" ph="{&quot;useBuiltIns&quot;: &quot;usage&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="1956:2092" ph="{&quot;edge&quot;: &quot;17&quot;...}" />
-              <marker date="1568205800434" expanded="true" signature="2178:2180" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2244:2598" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2265:2586" ph="[...]" />
-              <marker date="1568205800434" expanded="true" signature="2281:2572" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2395:2556" ph="{&quot;loader&quot;: 'babel-loader'...}" />
-              <marker date="1568205800434" expanded="true" signature="2466:2538" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2707:2729" ph="{...}" />
-              <marker date="1568205800434" expanded="true" signature="2747:2752" ph="{&quot;add&quot;: add...}" />
-              <marker date="1568205800434" expanded="true" signature="2850:2894" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2917" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2923" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2957" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="2850:2996" ph="//..." />
-              <marker date="1568205800434" expanded="true" signature="3420:3446" ph="..." />
-            </folding>
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -438,12 +421,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/guide/javascript/module.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="575">
-            <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="324">
+            <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
             <folding>
-              <marker date="1568280605837" expanded="true" signature="569:594" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="501:520" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2183:2266" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2211:2234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2245:2263" ph="{&quot;add&quot;: add...}" />
+              <marker date="1576380769032" expanded="true" signature="2328:2353" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3203:3205" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3227:3234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3626:3639" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4260:4328" ph="//..." />
+              <marker date="1576380769032" expanded="true" signature="4389:4405" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4423:4472" ph="{&quot;counter&quot;: counter...}" />
             </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vuepress/dist/guide/docker/docker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/docker/docker.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="405">
+            <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>

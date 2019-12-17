@@ -50,6 +50,3 @@ CI/CD概念
 - 权限分配
 1. 安装插件 Role-based Authorization Strategy
 2. 配置用户权限
-
-
-- 
