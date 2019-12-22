@@ -332,11 +332,10 @@ Notes:
 
 
 ## 使用dockerfile创建镜像
-
+docker run --name session-web -d -p 8888:8080 -v my-volume:/webapp     centos
 
 Dockerfile是一个文本格式的配置文件，用户可以使用dockecrfile来快速自定义的镜像。
 
-构建步骤： dockerfile编写-> docker build -> docker run 
 重点：
 - 1. dockerfile典型的基本结构
 - 2. 相关指令
@@ -368,3 +367,11 @@ wget -i -c https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
 
 
 yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml php72w-pecl-redis php72w-pecl-memcached
+
+
+
+
+参考：
+
+1. [Docker中文文档](http://www.dockerinfo.net/document)  
+2. [阿里云docker平台搭建]](https://help.aliyun.com/document_detail/50775.html?spm=a2c4g.11186623.6.1130.187e24ce5SPp62)

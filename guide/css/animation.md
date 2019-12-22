@@ -1,5 +1,4 @@
-# CSS Animation动画/transition过渡/transform变形
-
+# CSS Animation/transition/transform
 ::: tip 
 CSS Animatioin用于实现一个样式配置转换到两一个样式配置。
 动画包括两部分：
