@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+       /* table{
+           width: 100%;
+       }
+       td:first-of-type{
+         background: cadetblue;
+         width: 100px;
+         height: 200px;
+       }
+       td{
+           background: cornflowerblue;;
+       }
+       td:last-of-type{
+           height: 200px;
+           width: 100px;
+           background: chocolate;
+       } */
+       #parent{min-width: 320px;} /*100+10+200+20,防止宽度不够,子元素换行*/
+        #left {
+            margin-right: 10px; /*间隔*/
+            float: left;
+            width: 100px;
+            background-color:cornsilk;
+        }
+        #center{
+            margin-right: 10px; /*在此定义和#right的间隔*/
+            height: 500px;
+            background-color: cadetblue;
+            overflow: hidden;
+            /* display: table-cell;
+            width: 2000px; */
+        }
+        #right {
+            height: 500px;
+            background-color:cyan;
+            float: right;
+            width: 100px;
+            /* overflow: hidden;  触发bfc */
+        }
+
+
+
+    </style>
 </head>
+
 <body>
-    <ul>
-        <li>
-            <img src="./layout.jpg" alt="">
-        </li>
-    </ul>
+    <!-- <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+
+    <div id="parent">
+            <div id="left">左列定宽</div>
+            <div id="right">右列自适应</div>
+            <div id="center">中间定宽</div>
+    </div>
 </body>
+
 </html>
