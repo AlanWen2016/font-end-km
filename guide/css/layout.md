@@ -661,17 +661,29 @@ body {
 ```
 
 
-Note:
-对于两个浮动元素，
+Note:对于两个浮动元素，margin负值
 ```html
 <style>
     #parent{
-        width: 500px;
+        width: 400px;
+        height: 300px;
+        margin: 50px;
+        border: 1px solid red;
+    }
+    #s1{
+        float:left;
+        width: 200px;
+    }
+    #s2{
+        float: left;
+        width: 300px;
+        /* margin-left: -100px; 相对于父元素而言，负margin都会是s2的计算宽度减少，margin-left负值，会让s2向左移动*/
+        /* margin-right: -100px; margin-right负值，会让s2向右边移动*/
     }
     </style>
 <div id="parent">
-    <div id="s1"></div>
-    <div id="s2"></div>
+    <div id="s1">阿斯顿发撒的风</div>
+    <div id="s2">阿斯顿发送到发送到发送给的收发货人天</div>
 </div>
 ```
 
