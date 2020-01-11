@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .menu{
+            display: none;
+        }
+        .user:hover .menu{
+            display: list-item;
+        }
+
+       .c-checkbox iniput[type=checkbox]{
+           display: none;
+       }
+       .checkbox{
+           /* 自定义样式 */
+       }
+       input[type=checkbox]:checked + .checkbox{
+           /* 自定义样式 */
+       }
+       </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="user">用户
+                 <ul class="menu">
+                    <li>账户设置</li>
+                    <li>登出</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="c-checkbox">
+        <label class="c-checkbox">
+            <span class="checkbox"></span>
+            <input type="checkbox">
+        </label>
+    </div>
+</body>
+</html>

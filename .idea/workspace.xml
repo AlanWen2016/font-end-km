@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5565fa60-7ffb-4e24-9ff7-ed86b376cfb4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/guide/docker/docker.md" afterPath="$PROJECT_DIR$/guide/docker/docker.md" />
+      <change beforePath="$PROJECT_DIR$/guide/html/移动端弹性布局.md" afterPath="$PROJECT_DIR$/guide/html/移动端弹性布局.md" />
+      <change beforePath="$PROJECT_DIR$/guide/javascript/basic.md" afterPath="$PROJECT_DIR$/guide/javascript/basic.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -154,7 +155,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,6 +188,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,16 +226,17 @@
       <workItem from="1568251912564" duration="10364000" />
       <workItem from="1568598810100" duration="167000" />
       <workItem from="1576401881188" duration="667000" />
+      <workItem from="1578410907451" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20885000" />
+    <option name="totallyTimeSpent" value="20893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2409" y="-9" width="2418" height="1318" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13521482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1347936" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -264,6 +266,78 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.vuepress/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/javascript/npm.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="5292">
+            <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vuepress/dist/guide/docker/docker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/javascript/module.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="324">
+            <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            <folding>
+              <marker date="1576380769032" expanded="true" signature="501:520" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2183:2266" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2211:2234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="2245:2263" ph="{&quot;add&quot;: add...}" />
+              <marker date="1576380769032" expanded="true" signature="2328:2353" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3203:3205" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3227:3234" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="3626:3639" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4260:4328" ph="//..." />
+              <marker date="1576380769032" expanded="true" signature="4389:4405" ph="{...}" />
+              <marker date="1576380769032" expanded="true" signature="4423:4472" ph="{&quot;counter&quot;: counter...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guide/docker/docker.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1701">
+            <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1350">
+            <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/guide/javascript/npm.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
