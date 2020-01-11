@@ -28,7 +28,7 @@ export function mountComponent (
           'render functions, or use the compiler-included build.',
           vm
         )
-      } else { // 生产产经
+      } else { // 生产环境
         warn(
           'Failed to mount component: template or render function not defined.',
           vm
