@@ -200,6 +200,9 @@ import {db, apple} from './constants/index';
 
  CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成
 JS 引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。
+
+
+ES module 格式被设计为可以被静态分析，所以打包工具可以利用这一点来进行“tree-shaking”并将用不到的代码排除出最终的包。
 ```js
 // m1.js
 export var foo = 'bar';
@@ -232,6 +235,43 @@ console.log(mod.counter);  // 3
 mod.incCounter(); // 模块内部的counter已经变成4了
 console.log(mod.counter); // 3
 ```
+### CMD
+CMD是SeaJS 在推广过程中对模块定义的规范化产出
+对于依赖的模块AMD是提前执行，CMD是延迟执行。不过RequireJS从2.0开始，也改成可以延迟执行（根据写法不同，处理方式不同）。
+CMD推崇依赖就近，AMD推崇依赖前置。
+
+### UMD
+UMD是AMD和CommonJS的融合
+AMD模块以浏览器第一的原则发展，异步加载模块。
+CommonJS模块以服务器第一原则发展，选择同步加载，它的模块无需包装(unwrapped modules)。
+这迫使人们又想出另一个更通用的模式UMD （Universal Module Definition）。希望解决跨平台的解决方案。
+
+UMD先判断是否支持Node.js的模块（exports）是否存在，存在则使用Node.js模块模式。
+在判断是否支持AMD（define是否存在），存在则使用AMD方式加载模块。
+```js
+((root, factory) => {
+    if (typeof define === 'function' && define.amd) {
+        //AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        //CommonJS
+        var $ = requie('jquery');
+        module.exports = factory($);
+    } else {
+        root.testModule = factory(root.jQuery);
+    }
+})(this, ($) => {
+    //todo
+});
+```
+
+
+总结：
+
+CommonJS规范规定，每个模块内部，module变量代表当前模块。
+这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。
+
+
 
  _____
 
