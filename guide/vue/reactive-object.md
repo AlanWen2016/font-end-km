@@ -107,3 +107,6 @@ person.age = 'young';
 person.age = 300; 
 // 抛出异常: Uncaught RangeError: The age seems invalid
 ```
+
+
+
