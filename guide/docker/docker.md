@@ -374,4 +374,4 @@ yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php7
 参考：
 
 1. [Docker中文文档](http://www.dockerinfo.net/document) 
-2. [阿里云docker平台搭建]](https://help.aliyun.com/document_detail/50775.html?spm=a2c4g.11186623.6.1130.187e24ce5SPp62)
+2. [阿里云docker平台搭建](https://help.aliyun.com/document_detail/50775.html?spm=a2c4g.11186623.6.1130.187e24ce5SPp62)

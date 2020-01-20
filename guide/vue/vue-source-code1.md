@@ -2,9 +2,8 @@
 
 ## 第一章 源码目录设计和构建方式
 
-1. 不同编译版本差距
-<img src="../../assets/image/vue/run-time-only.png" width="500" hegiht="313" align=center />
-先看个错误
+1. 不同编译版本差距  
+- 先看个错误  
 ```js
   var app = new Vue({
         el: '#app',
@@ -14,6 +13,8 @@
         }
     })
 ```
+<img src="../../assets/image/vue/run-time-only.png" width="500" hegiht="313" align=center />
+
 npm包中vue/dist目录下，打包出来很多版本
 | | UMD | CommonJS | ES Module |
 | --- | --- | --- | --- |
@@ -25,15 +26,13 @@ npm包中vue/dist目录下，打包出来很多版本
 区别：
 - 1. runtime-only版本和full版本的区别
 **Vue完整版**指的是同时包含编译器和运行时版本。
-**vue编译器**将模板字符串编译成javascript渲染函数（render函数）的代码。
-**运行时**用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。
+**vue编译器**将模板字符串编译成javascript渲染函数（render函数）的代码。  
+**运行时**用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。  
 
 - 2. UMD VS CommonJs VS ESModule
 UMD可以使用script标签直接引用,融合和CommonJs和ESModule
-CommonJs规范模块加载是同步的，这就意味着，只有加载完成，后面的代码才能执行。CommonJS 版本用来配合老的打包工具使用
+CommonJs规范模块加载是同步的，这就意味着，只有加载完成，后面的代码才能执行。CommonJS 版本用来配合老的打包工具使用  
 ESModule版本，ESM格式的js可以做静态化分析，打包工具利用这一点进行tree-shaking,将不用的代码移除。
-
-
 
 
 ## 第二章 数据驱动原理
@@ -156,6 +155,6 @@ function initMixin (Vue) {
 
 参考：
 
-1.《vue源码解析》
-2. [逐行剖析 Vue.js 源码](https://nlrx-wjc.github.io/Learn-Vue-Source-Code/)  
+1.《vue源码解析》   
+2. [逐行剖析 Vue.js 源码](https://nlrx-wjc.github.io/Learn-Vue-Source-Code/)     
 3. [剖析Vue原理&实现双向绑定MVVM](https://segmentfault.com/a/1190000006599500)
