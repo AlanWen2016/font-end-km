@@ -56,9 +56,12 @@ module.exports = {
         title: 'Docker',
         collapsable: false,
         children: [
-          ['/guide/docker/docker', 'Docker基础'],
-          ['/guide/docker/2.image', 'Docker镜像'],
-          ['/guide/docker/3.container', 'Docker容器']
+          ['/guide/docker/1.docker', 'Docker基础'],
+          ['/guide/docker/2.image', '镜像'],
+          ['/guide/docker/3.container', '容器'],
+          ['/guide/docker/4.docker-volume', 'docker数据管理'],
+          ['/guide/docker/5.dockerfile', 'dockerfile'],
+          ['/guide/docker/7.lnmp', 'lnmp环境'],
         ]
       },
       {
@@ -73,6 +76,13 @@ module.exports = {
         collapsable: false,
         children: [
         '/guide/webpack/webpack'
+        ]
+      },
+      {
+        title: '公共',
+        collapsable: false,
+        children: [
+        '/guide/markdown-demo'
         ]
       },
     ],

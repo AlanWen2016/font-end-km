@@ -5,7 +5,7 @@
 
 
 
-<img src="../../assets/image/vue/div-dom.png" width="500" hegiht="313" align=center />
+<img src="../../assets/image/vue/div-dom.png" width="500" hegiht="313" align=center />  
 
 Virtual DOM 的目的并非只是速度，其核心价值在于用 JavaScript 表达 DOM 状态，因此它本身其实是有成本的。即每次更新时， vdom 树需要每次都重新建立，因此传统的 vdom 是有性能瓶颈。
 
