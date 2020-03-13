@@ -3,13 +3,16 @@
 ### 1.使用composer 安装laravel项目
 
 #### 1.1 composer安装，略
+
 #### 1.2 composer镜像和加速
-    Composer 中国全量镜像』是由 Laravel China 社区联合 又拍云 与 优帆远扬 共同合作推出的公益项目，旨在为广大 PHP 用户提供稳定和高速的 Composer 国内镜像服务
+镜像安装文档
+https://www.phpcomposer.com/
 ```
-composer config -g repo.packagist composer https://packagist.laravel-china.org
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
 
 ### 2.git使用和将项目push到github上去
+
 
 #### 2.1 github新建仓库
 #### 2.2 git使用

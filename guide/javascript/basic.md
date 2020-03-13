@@ -65,7 +65,7 @@ console.log(obj1, obj2, obj3)
 let obj4 = Object.assign({}, obj1);
 var obj5 = Object.create(obj1);
 
-// 数据浅拷贝
+// 数据浅拷贝， 只拷贝第一层
 var a = [1,2,3,4];
 var b = a.slice();
 b[0] = 2;

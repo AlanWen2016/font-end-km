@@ -82,6 +82,7 @@ module.exports = {
         title: '公共',
         collapsable: false,
         children: [
+        'guide/universal/cryptography',
         '/guide/markdown-demo'
         ]
       },

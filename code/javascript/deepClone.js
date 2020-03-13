@@ -12,6 +12,7 @@ let obj2 = {}
 for(key in obj1){
     obj2[key] = obj1[key] 
 }
+
 // es6解构赋值
 let obj3 = {...obj2}
 obj2.a.e = 4
