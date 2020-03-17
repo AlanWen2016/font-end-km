@@ -1,5 +1,7 @@
 # Function原型方法
 
+- JavaScript的世界观里, 函数也是对象, 函数是一等公民？为什么
+
 ## Function.prototype.call方法 fun.call(thisArg, arg1, arg2, ...)
 call方法一个指定this值和单独给出一个或者多个参数来调用一个函数，改变函数执行中的this绑定。
 
