@@ -1,6 +1,6 @@
 module.exports = {
   title: '印迹',
-  description: '昨夜西风凋碧树',
+  description: '字节珠玑',
   markdown: {
     lineNumbers: true
   },
@@ -82,7 +82,7 @@ module.exports = {
         title: '公共',
         collapsable: false,
         children: [
-        'guide/universal/cryptography',
+        '/guide/universal/cryptography',
         '/guide/markdown-demo'
         ]
       },

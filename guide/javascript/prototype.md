@@ -1,4 +1,5 @@
-# JavaScript面向对象
+# JavaScript是如何设计面向对象的？
+
 ## 原型和原型链
 
 1.理解原型设计模式以及JavaScript中的原型规则
@@ -19,10 +20,10 @@ JavaScript是一种基于原型的语言，每个对象拥有一个原型对象�
 
 ## new命令原理
 
-
+// 四步操作
 - 创建一个空对象，作为将要返回的对象实例。
 - 将这个空对象的原型，指向构造函数的prototype属性。
-- 将这个空对象赋值给函数内部的this关键字。
+- 函数内部的this关键字指向这个空对象。
 - 开始执行构造函数内部的代码。
 
 ```
@@ -82,17 +83,61 @@ function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
   console.log(actor1.__proto__ === actor2.__proto__); // true
 ```
 
-#### __proto__和prototype
+#### __proto__和prototype和constructor
 
+##### 概念
 - prototype 是函数(function) 的一个属性, 它指向函数的原型.
 - __proto__ 是对象的内部属性, 它指向构造器的原型, 对象依赖它进行原型链查询，instanceof 也是依赖它来判断是否继承关系.
 由上, prototype 只有函数才有, 其他(非函数)对象不具有该属性. 而 __proto__ 是对象的内部属性, 任何对象都拥有该属性.
 
+```
+function Fruit(name){
+    this.name = name;
+}
+var apple = new Fruit('apple')
+
+console.log(Fruit.prototype); // 
+console.log(apple.__proto__ == Person.prototype);//true
+```
+<img src="../../assets/image/js/apple.png" width="500" hegiht="313" align=center />  
+```
+var obj = {name: 'jack'},
+    arr = [1,2,3],
+    reg = /hello/g,
+    date = new Date,
+    err = new Error('exception');
+console.log(obj.__proto__  === Object.prototype); // true
+console.log(arr.__proto__  === Array.prototype);  // true
+console.log(reg.__proto__  === RegExp.prototype); // true
+console.log(date.__proto__ === Date.prototype);   // true
+console.log(err.__proto__  === Error.prototype);  // true
+```
+
+##### __proto
+ 所有的构造器都继承于Function.prototype,有构造器都继承了Function.prototype的属性及方法。如length、call、apply、bind（ES5）等.
+ Math，JSON是以对象形式存在的，无需new。由于任何对象都拥有 __proto__ 属性指向构造器的原型. 即它们的 __proto__ 指向Object对象的原型(Object.prototype)。
+```
+console.log(Fruit.__proto__ === Function.prototype);//true
+console.log(Number.__proto__   === Function.prototype); // true
+console.log(Boolean.__proto__  === Function.prototype); // true
+console.log(String.__proto__   === Function.prototype); // true
+console.log(Object.__proto__   === Function.prototype); // true
+console.log(Function.__proto__ === Function.prototype); // true
+console.log(Array.__proto__    === Function.prototype); // true
+console.log(RegExp.__proto__   === Function.prototype); // true
+console.log(Error.__proto__    === Function.prototype); // true
+console.log(Date.__proto__     === Function.prototype); // true
+
+// 对象__proto属性
+console.log(Math.__proto__ === Object.prototype);  // true
+console.log(JSON.__proto__ === Object.prototype);  // true
+```
+<img src="../../assets/image/js/objects-treasure-map.png" width="500" hegiht="313" align=center />  
 
 
 
 参考： 
-[https://juejin.im/post/58f9d0290ce46300611ada65](https://juejin.im/post/58f9d0290ce46300611ada65)
+[从prototype与__proto__窥探JS继承之源](https://juejin.im/post/58f9d0290ce46300611ada65)
 
 #### [Object.create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
 The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
@@ -124,3 +169,13 @@ function f(){
 f(); // false
 new f(); // true
 ```
+
+## 继承
+
+许多OO语言都支持两种继承方式: 接口继承和实现继承。接口继承只继承方法签名,而实现继承则继承实际的方法.由于js中方法没有签名,在ECMAScript中无法实现接口继承ECMAScript只支持实现继承,而且其实现继承主要是依靠原型链来实现的.
+
+
+每个构造函数(constructor)都有一个原型对象(prototype),原型对象都包含一个指向构造函数的指针,而实例(instance)都包含一个指向原型对象的内部指针。
+如果试图引用对象(实例instance)的某个属性,会首先在对象内部寻找该属性,直至找不到,然后才在该对象的原型(instance.prototype)里去找这个属性.
+
+
