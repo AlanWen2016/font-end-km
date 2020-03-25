@@ -28,6 +28,9 @@ setTimeout()方法不是ecmascript规范定义的内容，而是属于BOM提供�
 
 ## Promise基础
 
+
+
+
 ### [Promise A+规范](https://promisesaplus.com/)的基本内容
 
 1. Promise是什么
@@ -53,9 +56,35 @@ OnFulfilled，onReject函数最多被调用1次，OnFulfilled在promise的状态
 - 2.4 promise一些决议细节
 
 
+### Promise相关Api
+
+
+
 ### 简版Promise实现
+
+1. 实现如下调用
 ```
-function Promise(executor) {
+let promise1 = new Promise((resolve, reject) => {
+  resolve('data')
+})
+
+promise1.then(data => {
+  console.log(data)
+})
+
+let promise2 = new Promise((resolve, reject) => {
+  reject('error')
+})
+
+promise2.then(data => {
+  console.log(data)
+}, error => {
+  console.log(error)
+})
+```
+
+```
+function MyPromise(executor) {
   const self = this
   this.status = 'pending'
   this.value = null
@@ -72,9 +101,15 @@ function Promise(executor) {
   executor(resolve, reject)
 }
 
-Promise.prototype.then = function(onfulfilled = Function.prototype, onrejected = Function.prototype) {
+MyPromise.prototype.then = function(onfulfilled = Function.prototype, onrejected = Function.prototype) {
   onfulfilled(this.value)
-
   onrejected(this.reason)
 }
 ```
+
+
+
+
+
+
+

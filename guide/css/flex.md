@@ -28,7 +28,7 @@ flex布局是一种一维的布局，一次只能处理一个维度上的元素�
 
 
 
-### flex布局示例
+### flex布局示例 [codepen示例](https://codepen.io/AlanWen2016/pen/RwPYKPJ)
 <div class="container">
   <span class="item">1</span>
 </div>

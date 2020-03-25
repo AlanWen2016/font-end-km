@@ -14,6 +14,7 @@ module.exports = {
           '/guide/javascript/basic',
           '/guide/javascript/prototype',
           ['/guide/javascript/closure', '闭包'],
+          ['/guide/javascript/es6', 'ES6'],
           ['/guide/javascript/npm', 'npm发布'],
           ['/guide/javascript/module', '模块化'],
           ['/guide/javascript/jwt', 'JSON WEB令牌'],

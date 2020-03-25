@@ -209,6 +209,9 @@ new Promise((resolve, reject) => {
 ```
 > reduce是同步的，在一个事件循环就会完成，将多个promise放在数组中，使用ruduce转成串行执行，实际是在内存中快速构建了promise执行队列，将每一个promise函数加入一个了promise.then执行链中。
 
+
+
+
 5. 按照对象属性进行分类
 ```
 // 将对象按照age进行分组
