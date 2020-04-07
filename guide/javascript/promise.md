@@ -26,9 +26,8 @@ setTimeout()为什么不精准？
 setTimeout()方法不是ecmascript规范定义的内容，而是属于BOM提供的功能, 该方法用于在指定的毫秒数后调用函数或计算表达式。
 因为setTimeout并没有把你的回调函数挂在事件循环中。作为一个定时器，当设定时间到达后，环境才把你的回调函数放入事件循环中。这时候你的事件队列可能很长了，所以这个回调执行的时间完全依赖事件队列的状态决定。
 
+---
 ## Promise基础
-
-
 
 
 ### [Promise A+规范](https://promisesaplus.com/)的基本内容
@@ -62,54 +61,174 @@ OnFulfilled，onReject函数最多被调用1次，OnFulfilled在promise的状态
 
 ### 简版Promise实现
 
-1. 实现如下调用
+#### 1. 基本架子,实现.then()形式调用
+
+```js
+function MyPromise(executor) {
+    const self = this
+    this.status = 'pending'
+    this.value = null
+    this.reason = null
+  
+    function resolve(value) {
+      self.value = value
+    }
+    function reject(reason) {
+      self.reason = reason
+    }
+    executor(resolve, reject)
+  }
+  
+  MyPromise.prototype.then = function(onfulfilled = Function.prototype, onrejected = Function.prototype) {
+    onfulfilled(this.value)
+    onrejected(this.reason)
+  }  
 ```
-let promise1 = new Promise((resolve, reject) => {
-  resolve('data')
+
+```js
+// 测试代码
+  let promise1 = new MyPromise((resolve, reject) => {
+    resolve('data');
+    reject('error');
+  })
+  promise1.then(data => {
+    console.log(data)
+  }, error =>{
+    console.log(error)
+  })
+```
+上面代码输出data error。promise只能处于3中状态之一。
+
+
+
+
+#### 2. 解决异步执行的问题
+```
+let promise3 = new MyPromise((resolve, reject) => {
+   resolve('data')
+})
+promise3.then(data => {
+  console.log(data)
+})
+console.log(1)
+```
+
+
+
+#### 3. 链式调用
+
+```js
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('lucas')
+  }, 2000)
+})
+
+promise.then(data => {
+  console.log(data)
+  return `${data} next then`
+})
+.then(data => {
+  console.log(data)
+})
+```
+> 一个 Promise 实例的 then 方法体 onfulfilled 函数和 onrejected 函数中，是支持再次返回一个 Promise 实例的，也支持返回一个非 Promise 实例的普通值；并且返回的这个 Promise 实例或者这个非 Promise 实例的普通值将会传给下一个 then 方法 onfulfilled 函数或者 onrejected 函数中，这样就支持链式调用了。
+
+
+#### 4. 透穿实现
+> .then() 函数传递非函数值作为其参数时，实际上会被解析成 .then(null)，这时候的表现应该是：上一个 promise 对象的结果进行“穿透”，如果在后面链式调用仍存在第二个 .then() 函数时，将会获取被穿透下来的结果。
+
+```js
+const promise = new MyPromise((resolve, reject) => {
+  setTimeout(() => {
+      resolve('lucas')
+  }, 2000)
+})
+
+promise.then(null)
+.then(data => {
+  console.log(data)
+})
+```
+
+```js
+Promise.prototype.then = function(onfulfilled = Function.prototype, onrejected = Function.prototype) {
+  onfulfilled = typeof onfulfilled === 'function' ? onfulfilled : data => data
+  onrejected = typeof onrejected === 'function' ? onrejected : error => { throw error }
+
+    // ...
+}
+```
+
+4. 其他Promise静态方法的实现
+
+- Promise.prototype.catch
+- Promise.resolve，Promise.reject
+- Promise.all
+- Promise.race
+
+4.1 Promise.prototype.catch
+
+测试代码
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+      reject('lucas error')
+  }, 2000)
 })
 
 promise1.then(data => {
   console.log(data)
-})
-
-let promise2 = new Promise((resolve, reject) => {
-  reject('error')
-})
-
-promise2.then(data => {
-  console.log(data)
-}, error => {
+}).catch(error => {
   console.log(error)
 })
 ```
 
-```
-function MyPromise(executor) {
-  const self = this
-  this.status = 'pending'
-  this.value = null
-  this.reason = null
-
-  function resolve(value) {
-    self.value = value
-  }
-
-  function reject(reason) {
-    self.reason = reason
-  }
-
-  executor(resolve, reject)
-}
-
-MyPromise.prototype.then = function(onfulfilled = Function.prototype, onrejected = Function.prototype) {
-  onfulfilled(this.value)
-  onrejected(this.reason)
-}
+4.2 Promise.reslove, Promise.reject
+测试代码
+```js
+Promise.resolve('data').then(data => {
+  console.log(data)
+})
+console.log(1)
 ```
 
+4.3 Promise.all
+测试代码
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+      resolve('lucas')
+  }, 2000)
+})
 
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+      resolve('lucas')
+  }, 2000)
+})
 
+Promise.all([promise1, promise2]).then(data => {
+  console.log(data)
+})
+```
 
+4.4 Promise.race
+测试代码
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+      resolve('lucas1')
+  }, 2000)
+})
 
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+      resolve('lucas2')
+  }, 4000)
+})
 
-
+Promise.race([promise1, promise2]).then(data => {
+  console.log(data)
+})
+```

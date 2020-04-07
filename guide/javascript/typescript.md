@@ -177,6 +177,55 @@ let r: RegExp = /[a-z]/;
 ```
 
 
+### 元组
+数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。  
+Tuple元组类型： 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。
+
+
+```js
+let tom: [string, number] = ['Tom', 25];
+```
+### 枚举
+```js
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+```
+### 泛型（Generics）
+是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+
+> 泛型应用场景
+给数组填充任意类型,但是无法准确描述返回结果的数据类型。
+```
+function createArray(length: number, value: any): Array<any> {
+    let result = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
+}
+
+createArray(3, 'x'); // ['x', 'x', 'x']
+```
+这个时候可以使用泛型,我们在函数名后添加了 <T>，其中 T 用来指代任意输入的类型，在后面的输入 value: T 和输出 Array<T> 中即可使用了。
+```js
+function createArray<T>(length: number, value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
+}
+createArray<string>(3, 'x'); // ['x', 'x', 'x']
+```
+
+多个参数泛型使用
+```js
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]];
+}
+
+swap([7, 'seven']); // ['seven', 7]
+```
+
 参考：
 
 [1].[TypeScript入门教程](https://ts.xcatliu.com/basics/)
