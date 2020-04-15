@@ -19,6 +19,7 @@ module.exports = {
           ['/guide/javascript/module', '模块化'],
           ['/guide/javascript/jwt', 'JSON WEB令牌'],
           ['/guide/javascript/node', 'Node'],
+          ['/guide/javascript/promise', 'Promise'],
           ['/guide/javascript/typescript', 'TypeScript'],
           ['/guide/javascript/arrayBuffer', '文件上传'],
           ['/guide/javascript/regular-expression', '正则']          

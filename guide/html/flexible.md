@@ -75,8 +75,7 @@ Flexible源码分析
             scale = parseFloat(match[1]);
             dpr = parseInt(1 / scale);
         }
-    } else if (flexibleEl) { // 引入执行js之前，允许通过输出meta标签方式来手动设置dpr
-        var content = flexibleEl.getAttribute('content');
+         var content = flexibleEl.getAttribute('content');
         if (content) {
             var initialDpr = content.match(/initial\-dpr=([\d\.]+)/);
             var maximumDpr = content.match(/maximum\-dpr=([\d\.]+)/);
@@ -229,10 +228,18 @@ iOS：自 iOS8 版起就完美支持（2014年9月）
 1. 自动将px转为为vw
 2. 解决1px问题，就是解决响应式页面中不需要用响应式的元素
 
-
-
-
 ## 1px border问题
+
+
+
+
+### 移动端适配的那些事
+一般设计稿的尺寸都是以iphone6为基准，iphone6的设备像素（物理像素） 375px*1334px。下图是设计师同学给到设计稿件。
+<img src="../../assets/image/layout/750.png" width="375" hegiht="667" align=center />
+实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 
+<img src="../../assets/image/layout/343.png" width="375" hegiht="667" align=center />
+
+<img src="../../assets/image/layout/taobao.png" width="375" hegiht="667" align=center />
 
 
 

@@ -28,8 +28,12 @@ React元素是React应用的最小单元。
 
 ## 组件&Pros
 
+
+
+
 ### 组件
 
+组件分类：
 - 函数式组件
 - class组件，使用ES6的class来定义组件
 
@@ -54,6 +58,10 @@ class Clock extends React.Component {
 ```
 - 修改state, setState
 - 数据流传递方向
+
+
+
+
 
 
 ## react事件处理

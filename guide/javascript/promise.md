@@ -232,3 +232,8 @@ Promise.race([promise1, promise2]).then(data => {
   console.log(data)
 })
 ```
+
+
+
+
+
