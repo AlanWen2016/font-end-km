@@ -177,6 +177,55 @@ Flexible源码分析
 })(window, window['lib'] || (window['lib'] = {}));
 ```
 
+2.0版本
+```js
+(function flexible (window, document) {
+  var docEl = document.documentElement
+  var dpr = window.devicePixelRatio || 1
+
+  // adjust body font size
+  function setBodyFontSize () {
+    if (document.body) {
+      document.body.style.fontSize = (12 * dpr) + 'px'
+    }
+    else {
+      document.addEventListener('DOMContentLoaded', setBodyFontSize)
+    }
+  }
+  setBodyFontSize();
+
+  // set 1rem = viewWidth / 10
+  function setRemUnit () {
+    var rem = docEl.clientWidth / 10
+    docEl.style.fontSize = rem + 'px'
+  }
+
+  setRemUnit()
+
+  // reset rem unit on page resize
+  window.addEventListener('resize', setRemUnit)
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      setRemUnit()
+    }
+  })
+
+  // detect 0.5px supports
+  if (dpr >= 2) {
+    var fakeBody = document.createElement('body')
+    var testElement = document.createElement('div')
+    testElement.style.border = '.5px solid transparent'
+    fakeBody.appendChild(testElement)
+    docEl.appendChild(fakeBody)
+    if (testElement.offsetHeight === 1) {
+      docEl.classList.add('hairlines')
+    }
+    docEl.removeChild(fakeBody)
+  }
+}(window, document))
+```
+
+
 ------
 ### px转rem方法
 
@@ -236,10 +285,10 @@ iOS：自 iOS8 版起就完美支持（2014年9月）
 ### 移动端适配的那些事
 一般设计稿的尺寸都是以iphone6为基准，iphone6的设备像素（物理像素） 375px*1334px。下图是设计师同学给到设计稿件。
 <img src="../../assets/image/layout/750.png" width="375" hegiht="667" align=center />
-实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 
+实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 问题就归结到如何适配这个页面。
 <img src="../../assets/image/layout/343.png" width="375" hegiht="667" align=center />
 
-<img src="../../assets/image/layout/taobao.png" width="375" hegiht="667" align=center />
+
 
 
 
