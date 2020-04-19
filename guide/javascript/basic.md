@@ -235,3 +235,10 @@ Array.prototype.reduce = Array.prototype.reduce || function(func, initialVal){
 }
 
 ```
+
+## 箭头函数
+
+1. 箭头函数放弃this绑定, 它会从自己的作用域链继承this，无法使用new实例化
+2. 不绑定arguments, 当箭头函数调用arguments同样在作用域链中查询
+3. 没有prototype属性
+
