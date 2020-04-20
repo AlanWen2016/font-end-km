@@ -120,6 +120,88 @@ class Dog extends Component{
 
 ```
 
+### 组件插槽
+this.props.children可以获得插槽内的内容。
+```js
+class Card  extends Component{
+    render() {
+        return (
+            <div>
+                <h2>Card</h2>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+class Cards extends Component{
+  render() {
+    return (
+      <div>
+        <Card>
+           <h3 className='red'>h3</h3>
+        </Card>
+      </div>
+    )
+  }
+}
+```
+
+### 渲染原生html代码
+```js
+class DangerHtml extends Component {
+  constructor() {
+    super();
+    this.state = {
+      rawHtml: "<div>here is raw html</div>",
+    };
+  }
+  render() {
+    return (
+      <div>
+        <div dangerouslySetInnerHTML={{ __html: this.state.rawHtml }}></div>
+      </div>
+    );
+  }
+}
+```
+
+### style样式编写
+在 React.js 中你需要把 CSS 属性变成一个对象再传给元素：
+
+```js
+<h1 style={{fontSize: '12px', color: this.state.color}}>React.js 小书</h1>
+```
+
+### 组件参数校验
+组件参数校验需要引入第三方库: prop-types
+```
+npm install --save prop-types
+```
+
+```js
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+class Comment extends Component {
+  static propTypes = {
+    comment: PropTypes.object
+  }
+
+  render () {
+    const { comment } = this.props
+    return (
+      <div className='comment'>
+        <div className='comment-user'>
+          <span>{comment.username} </span>：
+        </div>
+        <p>{comment.content}</p>
+      </div>
+    )
+  }
+}
+```
+
 
 ## react教程- 井字游戏
 
