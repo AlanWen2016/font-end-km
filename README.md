@@ -1,6 +1,6 @@
 ---
 home: true
-actionText: 独上高楼 →
+actionText: Hello World →
 actionLink: /guide/
 features:
 - title: 简洁至上

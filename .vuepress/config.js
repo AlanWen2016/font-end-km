@@ -1,6 +1,6 @@
 module.exports = {
   title: '印迹',
-  description: '昨夜西风凋碧树',
+  description: '字节珠玑',
   markdown: {
     lineNumbers: true
   },
@@ -14,20 +14,24 @@ module.exports = {
           '/guide/javascript/basic',
           '/guide/javascript/prototype',
           ['/guide/javascript/closure', '闭包'],
+          ['/guide/javascript/es6', 'ES6'],
           ['/guide/javascript/npm', 'npm发布'],
           ['/guide/javascript/module', '模块化'],
           ['/guide/javascript/jwt', 'JSON WEB令牌'],
           ['/guide/javascript/node', 'Node'],
+          ['/guide/javascript/promise', 'Promise'],
           ['/guide/javascript/typescript', 'TypeScript'],
           ['/guide/javascript/arrayBuffer', '文件上传'],
-
+          ['/guide/javascript/regular-expression', '正则']          
         ]
       },
       {
         title: 'HTML',
         collapsable: false,
         children: [
-         '/guide/html/canvas',
+          ['/guide/html/canvas', 'canvas'],
+          ['/guide/html/flexible', 'flexible'],
+          ['/guide/html/formData', 'formData']
         ]
       },
       {
@@ -46,14 +50,20 @@ module.exports = {
         children: [
           ['/guide/vue/jsx', 'render函数和jsx'],
           ['/guide/vue/vue', 'VUE杂谈'],
+          ['/guide/vue/vue-source-code1', 'VUE源码1'],
+
         ]
       },
       {
         title: 'Docker',
         collapsable: false,
         children: [
-          ['/guide/docker/docker', 'Docker基础'],
-
+          ['/guide/docker/1.docker', 'Docker基础'],
+          ['/guide/docker/2.image', '镜像'],
+          ['/guide/docker/3.container', '容器'],
+          ['/guide/docker/4.docker-volume', 'docker数据管理'],
+          ['/guide/docker/5.dockerfile', 'dockerfile'],
+          ['/guide/docker/7.lnmp', 'lnmp环境'],
         ]
       },
       {
@@ -68,6 +78,14 @@ module.exports = {
         collapsable: false,
         children: [
         '/guide/webpack/webpack'
+        ]
+      },
+      {
+        title: '公共',
+        collapsable: false,
+        children: [
+        '/guide/universal/cryptography',
+        '/guide/markdown-demo'
         ]
       },
     ],

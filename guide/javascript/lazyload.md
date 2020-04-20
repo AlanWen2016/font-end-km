@@ -188,7 +188,7 @@ LazyLoad.prototype = {
 ```
 npm install vue-lazyload
 ```
-```js
+```html
 <template>
     <div class="lazyload">
         <div v-lazy-container="{ selector: 'img' }">

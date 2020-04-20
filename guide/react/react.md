@@ -11,6 +11,7 @@ var makes = [];
 for (i = 0; i < cars.length; i++) {
   makes.push(cars[i].make);
 }
+
 // 声明式
 var makes = cars.map(function(car){ return car.make; });
 ```
@@ -27,8 +28,12 @@ React元素是React应用的最小单元。
 
 ## 组件&Pros
 
+
+
+
 ### 组件
 
+组件分类：
 - 函数式组件
 - class组件，使用ES6的class来定义组件
 
@@ -83,6 +88,10 @@ handleClick() {
   }
 ```
  
+
+
+
+
 
 
 
