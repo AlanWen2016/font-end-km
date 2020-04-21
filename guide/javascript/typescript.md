@@ -157,6 +157,17 @@ let compare: foo = function (a, b){
 }
 ```
 - ts函数：可选参数、默认参数、剩余参数、函数重载
+函数重载： 允许一个函数接受不同的数量或者类型的参数作出不同的处理
+
+```js
+function sum(a:number, b:number):void
+function sum(a:string, b:string):void
+function sum(a: any, b: any): void{
+    return a + b;
+}
+```
+
+
 
 ### 类型断言
 用于手动指定一个值的类型，而不是转换。编写代码显式声明。
@@ -177,6 +188,50 @@ let r: RegExp = /[a-z]/;
 ```
 
 
+### 接口和抽象类的区别
+
+#### 接口
+1. 接口就是把一些类中的公共的属性和方法抽象出来，用于约束实现此接口的类
+2. 接口在面向对象编程中用于表示行为的抽象、描述对象的形状
+3. 一个类可以实现多个接口
+4. 接口像插件一样增强类，而抽象类是具体类的抽象概念
+
+#### 抽象类VS接口
+- 不同的类之前共有的属性和方法可以抽象成一个接口（Interfaces）
+- 抽象类是供其他类继承的基类，抽象类不允许被实例，抽象类的方法必须在子类中被实现
+- 接口仅能够用于描述，既不提供方法实现和属性初始化
+- 一个类只能继承一个类或抽象类，但是能实现多个接口 
+
+```js
+abstract class Animal{
+    name:string;
+    constructor(name: string){
+        this.name = name;
+    }
+    abstract speck(): void;
+}
+
+interface Flying{
+    fly():void;
+}
+
+class Duck extends Animal implements Flying{
+    speck(){
+        console.log('Duck 不必')
+    }
+    fly(){
+        console.log('I\'am singing in the sky')
+    }
+}
+let d1 = new Duck('d1');
+d1.fly();
+```
+
+#### 重写override和重载overload
+- 重写指的是子类重写继承自父类的方法
+- 重载指的是同一个函数提供多个类型的定义
+
+### 泛型  
 ### 元组
 数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。  
 Tuple元组类型： 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。
