@@ -152,3 +152,104 @@ function selectionSort(arr){
     return arr;
 }
 ```
+
+### 二分查找算法
+
+ #### 循环法
+ ```js
+ // 从有序数组中查找val的位置
+function bSearch(arr, target){
+    var left = 0;
+    var right = arr.length -1;
+    while(left <= right){
+        var mid = left + ((right - left) >>> 1);
+        if(arr[mid] === target){
+            return mid;
+        }else if(arr[mid] > target){
+            right = mid -1
+        }else{
+            left = mid +1
+        }
+    }
+    return -1;
+}
+ ```
+> 注意区间的闭合并性，二分查找法有3个容易出错的地方：
+
+- 循环退出的条件 left<=right
+- mid的计算方式， mid = (left + right)/2的计算方式有问题， left + right数值较大，可能会导致计算结果溢出，有两种算法比较合适
+left + (right -left)/2,或者使用位运算 left + ((right - left) >>> 1)
+- right = mid + 1和left = mid -1，就形成查找的闭合区间，如果right= mid, left=mid，那么当right和left相等是，就会陷入死循环
+
+#### 递归法
+```js
+function bbSearch(arr, target){
+    let bSearch = function(arr, left, right, target){
+        if(left>right) return -1;
+        var mid = left + ((right - left) >>> 1);
+        if(target === arr[mid]){
+            return mid
+        }else if(arr[mid] > target){
+            return bSearch(arr, left, mid - 1, target);
+        }else{
+            return bSearch(arr, mid + 1, right, target);
+        }
+    }
+    return bSearch(arr, 0, arr.length, target)
+}
+
+```
+
+ > 二分查找的时间复杂度计算 O(log n)
+
+- 变体一：查找第一个值等于给定值的元素
+
+```js
+var bSearch_arry = [1, 3, 5,5, 6, 7, 8, 23];
+function lSearch(arr, target){
+    let left = 0;
+    let right = arr.length -1;
+    while(left <= right){
+        let mid = left +((right -left)>>>1);
+        if(arr[mid] > target){
+            right = mid -1;
+        }else if(arr[mid] > left){
+            left = mid +1;
+        }else{
+            if(mid === 0 || arr[mid -1] != target){
+                return mid
+            }else{
+                right = mid -1;
+            }
+        }
+    }
+    return -1;
+}
+
+
+function search(arr, target){
+     let left = 0;
+    let right = arr.length -1;
+    while(left <= right){
+        let mid = left +((right -left)>>>1);
+        if(arr[mid] > target){
+            right = mid -1;
+        }else if(arr[mid] > left){
+            left = mid +1;
+        }else{
+            if(mid === 0 || arr[mid -1] != target){
+                return mid
+            }else{
+                right = mid -1;
+            }
+        }
+    }
+    return -1;
+}
+
+
+```
+
+
+
+

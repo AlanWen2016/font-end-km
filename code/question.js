@@ -93,16 +93,16 @@ function insertSort(array) {
     return array;
 }
 
-function selectionSort(arr){
-    for(let i=0; i< arr.length-1; i++){
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
         let sIndex = i;
         let j = i;
-        for(j; j< arr.length; j++){
-            if(arr[sIndex] > arr[j]){
+        for (j; j < arr.length; j++) {
+            if (arr[sIndex] > arr[j]) {
                 sIndex = j;
             }
         }
-        if(sIndex !== i){
+        if (sIndex !== i) {
             let tmp = arr[sIndex];
             arr[sIndex] = arr[i];
             arr[i] = tmp;
@@ -110,4 +110,96 @@ function selectionSort(arr){
     }
     return arr;
 }
-console.log(selectionSort([3,3,1,1,2,34, 6]))
+// console.log(selectionSort([3,3,1,1,2,34, 6]))
+
+
+//
+function bSearch(arr, target){
+    var left = 0;
+    var right = arr.length -1;
+    while(left <= right){
+        var mid = left + ((right - left) >>> 1);
+        if(arr[mid] === target){
+            return mid;
+        }else if(arr[mid] > target){
+            right = mid -1
+        }else{
+            left = mid +1
+        }
+    }
+    return -1;
+}
+
+
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+    var left = 0;
+    var right = nums.length -1;
+    var leftIndex = -1;
+    var rightIndex = -1;
+    while(left <= right){
+        var mid = left + ((right -left)>>>1);
+        if(nums[mid] > target){
+            right = mid -1;
+        }else if(nums[mid] < target){
+            left = mid +1;
+        }else{
+            if(mid === 0 || (nums[mid -1] != target)){
+                console.log(mid, nums[mid], target)
+                leftIndex = mid;
+                break;
+            }else{
+                right = mid -1;
+            }
+        }
+    }
+
+    
+    left = 0; 
+    right = nums.length -1;
+    while(left<=right){
+            var mid = left + ((right - left)>>>1);
+            if(nums[mid]> target){
+                right = mid -1;
+            }else if(nums[mid]< target){
+                left = mid + 1;
+            }else{
+                if ((mid == n - 1) || (nums[mid + 1] != target)) {
+                    rightIndex = mid;
+                    break;
+                }else{
+                    left = mid + 1;
+                }
+            }
+        }
+
+    return [leftIndex, rightIndex];
+};
+
+
+function search(arr, target){
+   let left = 0;
+   let right = arr.length -1;
+   while(left <= right){
+       let mid = left + ((right -left)>>>1);
+       if(arr[mid] > target){
+           right = mid -1;
+       }else if(arr[mid] > target){
+           left = mid +1;
+       }else{
+           if(mid === 0 || (arr[mid -1] != target)){
+               return mid
+           }else{
+               right = mid -1;
+           }
+       }
+   }
+   return -1;
+}
+console.log(searchRange([5,7,7,8,8,10],8))
