@@ -22,6 +22,7 @@ module.exports = {
           ['/guide/javascript/promise', 'Promise'],
           ['/guide/javascript/typescript', 'TypeScript'],
           ['/guide/javascript/arrayBuffer', '文件上传'],
+          ['/guide/javascript/js', 'js运行机制'],          
           ['/guide/javascript/regular-expression', '正则']          
         ]
       },
