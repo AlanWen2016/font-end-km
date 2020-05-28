@@ -161,6 +161,113 @@ if (!Function.prototype.bind) {
 bind是返回对应函数，便于稍后调用，apply、call是立即调用；
 
 
+## 节流与防抖
+手写防抖和节流工具函数、并理解其内部原理和应用场景
+
+### 1. 节流
+
+函数节流指的是某个函数在一定时间间隔内（例如 3 秒）只执行一次，在这 3 秒内 无视后来产生的函数调用请求，也不会延长时间间隔。3 秒间隔结束后第一次遇到新的函数调用会触发执行，然后在这新的 3 秒内依旧无视后来产生的函数调用请求，以此类推。
+
+```js
+function throttle(fn, delay = 50) {
+    let prev=0;
+    return function(...arg){
+        let curr = + new Date()
+        if(curr - prev > delay){
+            prev = curr
+            fn.apply(this, arg)
+        }
+    }
+}
+```
+
+### 2. 防抖debounce
+> 什么是防抖？
+在高频率触发的操作中，比如用户疯狂的点击一个按钮，这个按钮后面绑定一个点击事件，向后台接口发送一个异步请求以获取数据。还有比如监听滚动事件scroll。为了限制高频率触发事件，要对事件进行防抖限制。防抖动，就是不断触发事件过程中，我们设定一个定时器，一旦有新的事件触发，就重启计时器，所以最后一次触发才是真正对有效触发。
+举一个形象对例子，就像公交车到车站，司机需要停车等待1min，乘客开始上车，只要有乘客上车，司机就只能等待，一直等所有乘客上完车，假设一分钟内，没有乘客再上车，司机才能开车。
+
+```js
+// 使用闭包形式保存setTimeout返回对句柄timer
+function debounce(fn, delay = 50) {
+    let timer = null;
+    return function(...arg){
+        if(timer) clearTimeout(timer)
+        timer = setTimeout(()=>{
+            fn.apply(this, arg)   
+        }, delay)
+    }
+}
+```
+上面对函数第一次执行至少是delay毫秒之后，是无法立即执行，可以添加第三个参数的形式，控制是否立即执行
+```js
+function debounce(fn, delay = 50, immediate = false) {
+  let timer = null;
+  return function(...arg){
+    if(timer) clearTimeout(timer)
+
+    if(immediate && !timer){
+      return fn.apply(this, arg)
+    }
+
+    timer = setTimeout(()=>{
+      fn.apply(this, arg)   
+    }, delay)
+  }
+}
+```
+undersocore库的实现 
+```js
+// 此处的三个参数上文都有解释
+_.debounce = function(func, wait, immediate) {
+  // timeout 表示定时器
+  // result 表示 func 执行返回值
+  var timeout, result;
+
+  // 定时器计时结束后
+  // 1、清空计时器，使之不影响下次连续事件的触发
+  // 2、触发执行 func
+  var later = function(context, args) {
+    timeout = null;
+    // if (args) 判断是为了过滤立即触发的
+    // 关联在于 _.delay 和 restArguments
+    if (args) result = func.apply(context, args);
+  };
+
+  // 将 debounce 处理结果当作函数返回
+  var debounced = restArguments(function(args) {
+    if (timeout) clearTimeout(timeout);
+    if (immediate) {
+      // 第一次触发后会设置 timeout，
+      // 根据 timeout 是否为空可以判断是否是首次触发
+      var callNow = !timeout;
+      timeout = setTimeout(later, wait);
+      if (callNow) result = func.apply(this, args);
+    } else {
+    	// 设置定时器
+      timeout = _.delay(later, wait, this, args);
+    }
+
+    return result;
+  });
+
+  // 新增 手动取消
+  debounced.cancel = function() {
+    clearTimeout(timeout);
+    timeout = null;
+  };
+
+  return debounced;
+};
+
+// 根据给定的毫秒 wait 延迟执行函数 func
+_.delay = restArguments(function(func, wait, args) {
+  return setTimeout(function() {
+    return func.apply(null, args);
+  }, wait);
+});
+```
+
+
 
 
 参考：

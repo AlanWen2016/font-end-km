@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="testDebounce()">click</button>
+    <script>
+        function testDebounce() {
+            betterFn2()
+        }
+        const betterFn = debounce(() => console.log('fn 防抖执行了'), 1000)
+        const betterFn2 = throttle(() => console.log('fn throttle执行了'), 1000)
+
+        function debounce(fn, delay) {
+            let timer = null;
+            return function(...arg){
+                if(timer) clearTimeout(timer)
+                timer = setTimeout(()=>{
+                    fn.apply(this, arg)   
+                }, delay)
+            }
+        }
+        function throttle(fn, delay = 50) {
+            let prev=0;
+            return function(...arg){
+                let curr = + new Date()
+                if(curr - prev > delay){
+                    prev = curr
+                    fn.apply(this, arg)
+                }
+            }
+        }
+
+        function getData() {
+            setTimeout(()=>{
+                console.log('get Data')
+            }, 1000)
+        }
+
+    </script>
+</body>
+</html>

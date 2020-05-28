@@ -96,7 +96,7 @@ b. 绑定scroll事件后如何防抖
 
 ### 1.2封装优化
 
-1.2.1 增加节流
+1.2.1 增加节流函数
 ```js
 function throttle (fn, interval = 500) {
   let timer = null

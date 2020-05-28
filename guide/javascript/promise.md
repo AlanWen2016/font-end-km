@@ -61,6 +61,8 @@ OnFulfilled，onReject函数最多被调用1次，OnFulfilled在promise的状态
 
 ### 简版Promise实现
 
+
+
 #### 1. 基本架子,实现.then()形式调用
 
 ```js

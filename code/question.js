@@ -3,15 +3,15 @@
 // let target = 9;
 
 
-function twoSum(nums, target) {
-    let map = new Map();
-    for (let index = 0; index < nums.length; index++) {
-        if (map.get(target - nums[index]) !== undefined) {
-            return [index, map.get(target - nums[index])]
-        }
-        map.set(nums[index], index)
-    }
-}
+// function twoSum(nums, target) {
+//     let map = new Map();
+//     for (let index = 0; index < nums.length; index++) {
+//         if (map.get(target - nums[index]) !== undefined) {
+//             return [index, map.get(target - nums[index])]
+//         }
+//         map.set(nums[index], index)
+//     }
+// }
 // console.log(twoSum(nums, target)
 
 // 2. 合并两个有序数组
@@ -21,14 +21,13 @@ let nums1 = [1, 2, 3, 0, 0, 0],
 let nums2 = [2, 5, 6],
     n = 3
 // 输出: [1,2,2,3,5,6]
-
 // 双指针法
 function mergeArray(nums1, m, nums2, n) {
     let i = m - 1;
     let j = n - 1;
     let k = m + n - 1;
 
-    while (i >= 0 && j >= 0) {
+    while (i >= 0 && j >= 0) { // 第一个数组的最后一个大于第二个数组的
         if (nums1[i] > nums2[j]) {
             nums1[k] = nums1[i];
             k--;
@@ -202,4 +201,78 @@ function search(arr, target){
    }
    return -1;
 }
-console.log(searchRange([5,7,7,8,8,10],8))
+// console.log(searchRange([5,7,7,8,8,10],8))
+
+
+// hashTable
+function HashTable() {
+    var table = [];
+    var loseloseHashCode = function (key) {  //(1)散列函数
+        var hash = 0;
+        for (var i = 0; i < key.length; i++) {
+            hash += key.charCodeAt(i);
+        }
+        return hash % 37;
+    };
+    var djb2HashCode = function (key) {  //(2)散列函数
+        var hash = 5381;
+        for (var i = 0; i < key.length; i++) {
+            hash = hash * 33 + key.charCodeAt(i);
+        }
+        return hash % 1013;
+    };
+    var hashCode = function (key) {
+        return loseloseHashCode(key);
+    };
+    this.put = function (key, value) { //根据所给的key通过散列函数计算出它在表中的位置，进而作映射
+        var position = hashCode(key);
+        console.log(position + ' - ' + key);
+        table[position] = value;
+    };
+    this.get = function (key) {
+        return table[hashCode(key)];
+    };
+    this.remove = function(key){
+        table[hashCode(key)] = undefined;
+    };
+    this.print = function () {
+        for (var i = 0; i < table.length; ++i) {
+            if (table[i] !== undefined) {
+                console.log(i + ": " + table[i]);
+            }
+        }
+    };
+}
+
+
+// 
+
+const root = {
+    val: "A",
+    left: {
+      val: "B",
+      left: {
+        val: "D"
+      },
+      right: {
+        val: "E"
+      }
+    },
+    right: {
+      val: "C",
+      right: {
+        val: "F"
+      }
+    }
+  };
+
+  function preOrder(root){
+      if(!root) return
+      console.log(`当前节点${root.val}`)
+      // 遍历左子树
+      preOrder(root.left);
+      // 遍历右子树
+      preOrder(root.right);
+  }
+
+  preOrder(root)

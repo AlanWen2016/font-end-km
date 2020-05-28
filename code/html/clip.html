@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+         .clip-sty{
+            -webkit-clip-path: circle(95px at 100px 100px);
+            clip-path: circle(95px at 100px 100px);
+            background-color: blanchedalmond;
+            pointer-events: auto;
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+      }
+    </style>
+</head>
+<body>
+    <div class='container' onclick="test2()"></div>
+    <div class='content clip-sty' onclick="test1()"></div>
+
+
+      <input type="button" value="click me" onclick="hello()">
+
+<script>
+function hello(){
+    alert("hello world!");
+}
+</script>
+    <script>
+        function test1(e){
+            e.preventDefault();
+            return
+            
+        }
+        function test2(){
+            alert(2)
+        }
+       
+    </script>
+     
+</body>
+</html>

@@ -279,10 +279,169 @@ iOS：自 iOS8 版起就完美支持（2014年9月）
 
 ## 1px border问题
 
+### 1px border解决方案： 伪类 + transform
+
+<style>
+  /*手机端实现真正的一像素边框*/
+  .border-1px, .border-bottom-1px, .border-top-1px, .border-left-1px, .border-right-1px {
+    position: relative;
+  }
+  /*线条颜色 黑色*/
+  .border-1px::after, .border-bottom-1px::after, .border-top-1px::after, .border-left-1px::after, .border-right-1px::after {
+    /*background-color: #000;*/
+  }
+  /*底边边框一像素*/
+  .border-bottom-1px::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: 0 0;
+  }
+
+  /*上边边框一像素*/
+  .border-top-1px::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: 0 0;
+  }
+
+  /*左边边框一像素*/
+  .border-left-1px::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform-origin: 0 0;
+  }
+
+  /*右边边框1像素*/
+  .border-right-1px::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform-origin: 0 0;
+  }
+
+  /*边框一像素*/
+  .border-1px::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    border-radius: 10px;
+    /*background-color: #42b983;*/
+  }
+  /*设备像素比*/
+  /*显示屏最小dpr为2*/
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    .border-bottom-1px::after, .border-top-1px::after {
+      transform: scaleY(0.5);
+    }
+
+    .border-left-1px::after, .border-right-1px::after {
+      transform: scaleX(0.5);
+    }
+
+    .border-1px::after {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+
+  /*设备像素比*/
+  @media (-webkit-min-device-pixel-ratio: 3)  {
+    .border-bottom-1px::after, .border-top-1px::after {
+      transform: scaleY(0.333);
+    }
+
+    .border-left-1px::after, .border-right-1px::after {
+      transform: scaleX(0.333);
+    }
+
+    .border-1px::after {
+      width: 300%;
+      height: 300%;
+      transform: scale(0.333);
+      transform-origin: 0 0;
+    }
+  }
+  /*需要注意<input type="button">是没有:before, :after伪元素的*/
+</style>
 
 
+2. postcss-write-svg实现
+以vue项目为例子：安装和配置postcss-write-svg
+```
+npm install postcss-write-svg
+```
+```js
+// vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      css: {},
+      postcss: {
+        plugins: [
+          require('postcss-write-svg')({
+            utf8: false
+          }),
+          require('postcss-px2rem')({
+            remUnit: 37.5
+          })
+        ]
+      }
+    }
+  }
+}
+```
+定义svg函数，下面是一个示例
+```html
+<style scoped lang="scss">
+  @svg 1px-border {
+    width: 4px;
+    height: 4px;
+    @rect {
+      fill: transparent;  // content为透明
+      width: 100%;  // 宽度为4px * 100%
+      height: 100%;  // 高度为4px * 100%
+      stroke-width: 25%;  // 边框宽度 4px * 25%(即1px)
+      stroke: var(--color, black);  // 颜色
+    }
+  }
+  .child2{
+    color: red;
+    display: inline-block;
+    width: 100px;
+    height: 100px;/*no*/
+    /*border: .5px solid red;*/
+    border: 1px solid;
+    border-image: svg(1px-border param(--color #ffcc00)) 1 stretch;
+    /*border-radius: 20px;*/ // 设置无效
+  }
+```
 
 ### 移动端适配的那些事
+使用@vue/cli4.0搭建了一个vue架子：放到github[demo传送门](https://github.com/AlanWen2016/vue-flexible-template.git)上面。  
+
 一般设计稿的尺寸都是以iphone6为基准，iphone6的设备像素（物理像素） 375px*1334px。下图是设计师同学给到设计稿件。
 <img src="../../assets/image/layout/750.png" width="375" hegiht="667" align=center />
 实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 问题就归结到如何适配这个页面。

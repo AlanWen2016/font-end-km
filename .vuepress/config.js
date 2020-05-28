@@ -55,6 +55,14 @@ module.exports = {
         ]
       },
       {
+        title: 'REACT',
+        collapsable: false,
+        children: [
+          ['/guide/react/react', 'react'],
+          ['/guide/react/taro', 'taro框架'],
+        ]
+      },
+      {
         title: 'Docker',
         collapsable: false,
         children: [

@@ -3,7 +3,7 @@
 :::tip
  问题
 1. TS 的项目开发中有哪些核心语法，语法规范是如何的。
-2. TS 的适用场景分析，如何将 TS 编译成指定 JS 标准版本。
+2. TS 的适用场景分析，如何将 TS 编译成指定 JS 标准版本。 --target
 3. TS 如何使用第三方模块，同时如何发布 TS 模块。
 4. 越来越多的项目在往 TS 迁移，如何把老的项目往 TS 迁移。
 5. 用 TS 封装 Promise 实现一个中间件函数。
@@ -53,6 +53,38 @@ function getString(something: string | number) string {
 }
 ```
 
+#### 交叉类型： 几个类型之和
+// T&U
+```ts
+function extend<T, U>(first: T, second: U): T&U{
+    let result = {} as T & U
+    for(let id in first){
+        result[id] = first[id] as any
+    }
+    for(let id in second){
+        if(!result.hasOwnProperty(id)){
+            result[id] = second[id] as any
+        }
+    }
+    return result
+}
+```
+## 函数声明
+```ts
+ function add(x: number, y:number):number{
+     return x+y 
+ }
+ let add1:(baseValue: number, increament: number)=> number = function(a, b){
+     return a + b
+ }
+```
+### 可选参数和默认值
+```ts
+ function add(x: number, y:number = 1, z?:number):number{
+     return x+ y + z
+ }
+```
+ 
 ## 对象类型
 
 ### 对象的接口（interfaces）
@@ -195,6 +227,41 @@ let r: RegExp = /[a-z]/;
 2. 接口在面向对象编程中用于表示行为的抽象、描述对象的形状
 3. 一个类可以实现多个接口
 4. 接口像插件一样增强类，而抽象类是具体类的抽象概念
+```ts
+// 描述类的interface
+// a. 描述类实例的interface和b.描述类的构造器的interface
+
+// 实例接口
+interface ClockInterface{
+    tick()
+}
+// 构造器接口
+interface ClockContructor{
+    new(hour: number, minute: number):ClockInterface
+}
+
+function createClock(ctor: ClockContructor, hour: number, minute: number): ClockInterface{
+    return new ctor(hour, minute)
+}
+
+class DigitalClock implements ClockInterface{
+    constructor(h:number, m: number){
+    }
+    tick(){
+        console.log(1354)
+    }
+}
+class AnalogClock implements ClockInterface{
+    constructor(h:number, m: number){
+
+    }
+    tick(){
+        console.log('anlog')
+    }
+}
+```
+
+
 
 #### 抽象类VS接口
 - 不同的类之前共有的属性和方法可以抽象成一个接口（Interfaces）
@@ -227,11 +294,88 @@ let d1 = new Duck('d1');
 d1.fly();
 ```
 
+```ts
+class Animal{
+    name: string
+    constructor(name: string){
+        this.name = name
+    }
+    move(distance: number = 0){
+        console.log(`${this.name} move ${distance}`)
+    }
+}
+class Cat extends Animal{
+    // super执行父类构造函数
+    constructor(name: string){
+        super(name)
+    }
+    move() {
+        console.log('走猫步')
+        super.move(3)
+    }
+}
+let Tom = new Cat('Tom')
+console.log(Tom.move())
+```
+
+#### class的属性修饰符： public private protected
+
+
+
 #### 重写override和重载overload
 - 重写指的是子类重写继承自父类的方法
 - 重载指的是同一个函数提供多个类型的定义
 
 ### 泛型  
+- 泛型变量
+- 泛型类型
+- 泛型类
+- 泛型约束
+在数组中，例如一个identity函数，它的实现就是你传什么参数，它返回什么参数。这个时候，如果把它的传参定义为any,则无法精准表示原有函数。这个使用类型变量
+```ts
+function identity(arg: any): any{
+    return arg
+}
+// T可以作为类型变量，
+function identity<T>(arg: T): T{
+    // 函数体内必须正确使用类型参数， 比如说使用 arg.length
+    return arg
+}
+```
+
+#### 泛型类型和泛型接口
+``` ts
+function identity<T>(arg: T): T{
+    return arg
+}
+// 基础用法
+let myIdentity:<T>(arg: T)=> T = identity
+// 使用对象字面量
+let myIdentity2: {<T>(arg: T): T} = identity 
+// 使用接口
+interface GenericIdentityFn<T>{
+    (arg: T): T
+}
+let myIdentity3: GenericIdentityFn<number> = identity
+```
+泛型约束
+```ts
+interface Lenghtwise{
+    length: number
+}
+
+function testIndentity<T extends Lenghtwise>(arg: T): T{
+    console.log(arg.length)
+    return arg
+}
+
+// 使用keyof 
+function getPropert<T, K extends keyof T>(obj: T, key: K){
+    return obj[key]
+}
+```
+
+
 ### 元组
 数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。  
 Tuple元组类型： 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。
@@ -280,6 +424,47 @@ function swap<T, U>(tuple: [T, U]): [U, T] {
 
 swap([7, 'seven']); // ['seven', 7]
 ```
+
+## 类型保护
+
+### 1. 类型谓词is
+```ts
+interface Fish{
+    swim()
+    layEggs()
+}
+interface Bird{
+    fly()
+    layEggs()
+}
+function getSmallPet(): Fish | Bird{
+    //
+}
+
+let pet = getSmallPet()
+if((pet as Fish).swim){
+    (pet as Fish).swim()
+}else if((pet as Bird).fly){
+    (pet as Bird).fly()
+}
+
+function isFish(pet: Fish | Bird): pet is Fish{
+    return (pet as Fish).swim !== undefined
+}
+```
+
+### 2. 使用instanceof关键词
+
+### 3. null和undefined类型是其他类型的有效值
+```ts
+function f2(str: string | null):string{
+    // return str! || 'default'  // 增加感叹号表示类型不为null
+    return str || 'default'
+}
+```
+
+
+
 
 参考：
 

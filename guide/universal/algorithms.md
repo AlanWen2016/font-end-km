@@ -226,7 +226,6 @@ function lSearch(arr, target){
     return -1;
 }
 
-
 function search(arr, target){
      let left = 0;
     let right = arr.length -1;
@@ -246,10 +245,113 @@ function search(arr, target){
     }
     return -1;
 }
-
-
 ```
 
 
+## 散列表
+散列表(hash table)是数组的扩展，利用数组下标随机访问数组元素的时候，时间复杂度O(1)。通过散列函数hash(key),将key映射为数组下标，将数据存储到对应到下标位置。
 
+散列表到设计核心就变成了设计一个好的散列函数：
+
+散列函数要点：
+- 散列函数计算得到的散列值是一个非负整数；
+- 如果 key1 = key2，那 hash(key1) == hash(key2)；
+- 如果 key1 ≠ key2，那 hash(key1) ≠ hash(key2)。
+
+```js
+// hashTable
+function HashTable() {
+    var table = [];
+    var loseloseHashCode = function (key) {  //(1)散列函数
+        var hash = 0;
+        for (var i = 0; i < key.length; i++) {
+            hash += key.charCodeAt(i);
+        }
+        return hash % 37;
+    };
+    var djb2HashCode = function (key) {  //(2)散列函数
+        var hash = 5381;
+        for (var i = 0; i < key.length; i++) {
+            hash = hash * 33 + key.charCodeAt(i);
+        }
+        return hash % 1013;
+    };
+    var hashCode = function (key) {
+        return loseloseHashCode(key);
+    };
+    this.put = function (key, value) { //根据所给的key通过散列函数计算出它在表中的位置，进而作映射
+        var position = hashCode(key);
+        console.log(position + ' - ' + key);
+        table[position] = value;
+    };
+    this.get = function (key) {
+        return table[hashCode(key)];
+    };
+    this.remove = function(key){
+        table[hashCode(key)] = undefined;
+    };
+    this.print = function () {
+        for (var i = 0; i < table.length; ++i) {
+            if (table[i] !== undefined) {
+                console.log(i + ": " + table[i]);
+            }
+        }
+    };
+}
+```
+
+
+## 二叉树 
+
+### 二叉树的遍历方法
+按照二叉树节点递归的顺序分为： 前序遍历、中序遍历、后序遍历
+
+ - 前序遍历是指，对于树中的任意节点来说，先打印这个节点，然后再打印它的左子树，最后打印它的右子树。
+ - 中序遍历是指，对于树中的任意节点来说，先打印它的左子树，然后再打印它本身，最后打印它的右子树。
+ - 后序遍历是指，对于树中的任意节点来说，先打印它的左子树，然后再打印它的右子树，最后打印这个节点本身。
+
+```js
+const root = {
+    val: "A",
+    left: {
+      val: "B",
+      left: {
+        val: "D"
+      },
+      right: {
+        val: "E"
+      }
+    },
+    right: {
+      val: "C",
+      right: {
+        val: "F"
+      }
+    }
+  };
+  // 前序遍历法
+function preOrder(root){
+    if(!root) return
+    console.log(`当前遍历的节点是${root.val}`)
+    preOrder(root.left)
+    proOrder(root.right)
+}
+// 中序遍历法
+function preOrder(root){
+    if(!root) return
+    preOrder(root.left)
+    console.log(`当前遍历的节点是${root.val}`)
+    proOrder(root.right)
+}
+// 后序遍历法
+function preOrder(root){
+    if(!root) return
+    preOrder(root.left)
+    console.log(`当前遍历的节点是${root.val}`)
+    proOrder(root.right)
+}
+```
+
+### 平衡二叉树
+任何节点的左右子树的高度相差不能为1
 

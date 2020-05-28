@@ -326,3 +326,11 @@ class UserList extends Component {
   }
 }
 ```
+
+
+
+# Redux
+
+> redux设计思想 
+- web应用是一个状态机，视图与状态是一一对应
+- 所有状态存在一个对象里。
