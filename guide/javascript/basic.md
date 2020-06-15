@@ -42,6 +42,33 @@
 数组具有一个最基本特征：索引，这是对象所没有的，通过 数组名[索引] 可以访问数组元素。数组表示有序数据的集合，而对象表示无序数据的集合。如果数据的顺序很重要，就用数组，否则就用对象。
 数组和对象的另一个区别是，数组的数据没有”名称”（name），对象的数据有”名称”（name）。
 
+
+> 深浅拷贝问题的产生
+JS的数据类型分为基本数据类型和引用类型。
+对于给变量赋值的操作， 如果给变量赋值基本类型，那么会对值进行一份拷贝。如果给变量赋值一个对象（引用类型），那么会将这个对象的引用地址赋值给变量，改变这个变量值，同时也就改变了原来那个对象的值。
+对于引用类型，会导致a b指向同一份数据，此时如果对其中一个进行修改，就会影响到另外一个，有时候这可能不是我们想要的结果，如果对这种现象不清楚的话，还可能造成不必要的bug
+```
+let a = 234
+let b = a 
+
+a = 456
+console.log(a, b) // 456 123
+
+
+let c = {k: 1}
+let d = c
+c.k = 2
+
+console.log(c, d) // {k: 2} {k: 1}
+
+```
+> 浅拷贝
+简单来说可以理解为浅拷贝只解决了第一层的问题，拷贝第一层的基本类型值，以及第一层的引用类型地址。
+
+- Object.assign
+- 展开语法spread let b = {...a};
+- Array.slice
+
 ```js
 let obj1 = {
     a: {e: 12},
@@ -50,7 +77,6 @@ let obj1 = {
     d: /^\d/,
     f: 1234
 }
-
 
 // 使用for循环
 let obj2 = {}
@@ -71,12 +97,26 @@ var b = a.slice();
 b[0] = 2;
 alert(a); // 1,2,3,4
 alert(b); // 2,2,3,4
+```
 
+> 深拷贝
+
+```js
+JSON.parse(JSON.stringify(obj))
+```
+1. undefined、symbol 和函数这三种情况，会直接忽略。
+2. 不能解决循环引用的对象
+3. 不能正确处理new Date()
+4. 不能处理正则
+
+
+
+
+> 深拷贝的两种实现方式： 递归方式、 循环
+热门的函数库lodash，也有提供_.cloneDeep用来做深拷贝
+
+```js
 // 修改obj第一层数据，如果
-
-
-
-
 let abj = {a: {b: 2}, k: undefined, c: null, f: /^\d/}
 function deepClone (obj){
     let objClone = Array.isArray(obj)?[]:{};
@@ -108,12 +148,107 @@ function deepClone (obj){
 let bbj = deepClone(abj)
 bbj.a = {c: 26}
 console.log(bbj, bbj === abj, abj)
+```
+
+> 深拷贝的递归爆栈、循环引用问题的处理
+
+```js
+function creatData(deepth, breadth){
+  var data = {}
+  var tmp = data
+  for(var i= 0; i<deepth; i++){
+    tmp = tmp['data'] = {}
+    for(var j=0; j<breadth; j++){
+      tmp[j] = j
+    }
+  }
+  return data
+}
+```
+1. 深度递归的问题
+```js
+// 保持引用关系
+function cloneForce(x) {
+    // =============
+    const uniqueList = []; // 用来去重
+    // =============
+
+    let root = {};
+
+    // 循环数组
+    const loopList = [
+        {
+            parent: root,
+            key: undefined,
+            data: x,
+        }
+    ];
+
+    while(loopList.length) {
+        // 深度优先
+        const node = loopList.pop();
+        const parent = node.parent;
+        const key = node.key;
+        const data = node.data;
+
+        // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+        let res = parent;
+        if (typeof key !== 'undefined') {
+            res = parent[key] = {};
+        }
+        
+        // =============
+        // 数据已经存在
+        let uniqueData = find(uniqueList, data);
+        if (uniqueData) {
+            parent[key] = uniqueData.target;
+            continue; // 中断本次循环
+        }
+
+        // 数据不存在
+        // 保存源数据，在拷贝数据中对应的引用
+        uniqueList.push({
+            source: data,
+            target: res,
+        });
+        // =============
+    
+        for(let k in data) {
+            if (data.hasOwnProperty(k)) {
+                if (typeof data[k] === 'object') {
+                    // 下一次循环
+                    loopList.push({
+                        parent: res,
+                        key: k,
+                        data: data[k],
+                    });
+                } else {
+                    res[k] = data[k];
+                }
+            }
+        }
+    }
+
+    return root;
+}
+
+function find(arr, item) {
+    for(let i = 0; i < arr.length; i++) {
+        if (arr[i].source === item) {
+            return arr[i];
+        }
+    }
+
+    return null;
+}
 
 ```
-热门的函数库lodash，也有提供_.cloneDeep用来做深拷贝
 
 
-### 数组使用slice()
+[深拷贝的终极探索](https://juejin.im/post/5bc1ae9be51d450e8b140b0c#heading-3)
+
+
+
 
 ### 对象使用Object.asign
 
@@ -245,3 +380,5 @@ Array.prototype.reduce = Array.prototype.reduce || function(func, initialVal){
 2. 不绑定arguments, 当箭头函数调用arguments同样在作用域链中查询
 3. 没有prototype属性
 
+
+### 计算一个函数执行时间

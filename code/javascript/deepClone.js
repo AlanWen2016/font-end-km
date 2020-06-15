@@ -34,6 +34,9 @@ alert(b); // 2,2,3,4
 
 
 let abj = {a: {b: 2}, k: undefined, c: null, f: /^\d/}
+
+
+
 function deepClone (obj){
     let objClone = Array.isArray(obj)?[]:{};
     if(typeof obj !== "object") return obj

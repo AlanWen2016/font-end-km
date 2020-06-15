@@ -1,8 +1,8 @@
 ## MVVM
 <img src="../../assets/image/vue/mvvm.png" width="300" hegiht="200" align=center />
 
-- 视图（View）：用户界面。
-- 模型（Model）：数据保存。就是业务逻辑相关的数据对象，通常从数据库映射而来，我们可以说是与数据库对应的model
+- 视图（View）：用户界面。View层组件有一定处理输入输出并作出反馈对能力 
+- 模型（Model）：数据保存。就是业务逻辑相关的数据对象，通常从数据库映射而来，我 们可以说是与数据库对应的model
 
 - ViewModel：就是与界面(view)对应的Model。因为，数据库结构往往是不能直接跟界面控件一一对应上的，所以，需要再定义一个数据对象专门对应view上的控件。而ViewModel的职责就是把model对象封装成可以显示和接受输入的界面数据对象。  
 ViewModel就是View与Model的连接器，View与Model通过ViewModel实现双向绑定。 

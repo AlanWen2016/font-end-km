@@ -441,10 +441,10 @@ module.exports = {
 
 ### 移动端适配的那些事
 使用@vue/cli4.0搭建了一个vue架子：放到github[demo传送门](https://github.com/AlanWen2016/vue-flexible-template.git)上面。  
-
-一般设计稿的尺寸都是以iphone6为基准，iphone6的设备像素（物理像素） 375px*1334px。下图是设计师同学给到设计稿件。
+               
+一般设计稿的尺寸都是以iphone6为基准，iphone6的设备像素（物理像素） 375px*1334px。下图是设计师同学给到设计稿件。   
 <img src="../../assets/image/layout/750.png" width="375" hegiht="667" align=center />
-实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 问题就归结到如何适配这个页面。
+实际页面尺寸是343px * 180px, 实际切图尺寸是2倍像素,即 686px * 360px; 问题就归结到如何适配这个页面。   
 <img src="../../assets/image/layout/343.png" width="375" hegiht="667" align=center />
 
 

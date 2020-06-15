@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./clone.js"></script>
 </head>
 <body>
     
@@ -42,6 +43,20 @@
             }, 1000)
         }
 
+        fn = ()=>{
+            let sum =0
+            for(let i =0;i<1000000000; i++){
+                //
+                sum += i
+            }
+            return sum;
+        }
+        function calculateRunTime(fn){
+            let start = Date.now()
+            let sum = fn()
+            console.log(Date.now()-start, sum)
+        }
+        // calculateRunTime(fn)
     </script>
 </body>
 </html>

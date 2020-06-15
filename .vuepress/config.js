@@ -1,5 +1,5 @@
 module.exports = {
-  title: '印迹',
+  title: '前端进阶',
   description: '字节珠玑',
   markdown: {
     lineNumbers: true
