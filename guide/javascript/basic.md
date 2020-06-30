@@ -1,5 +1,5 @@
 
-# 变量和类型
+## 变量和类型
 
 ```js
  function Person(name, age, salary){
@@ -18,9 +18,11 @@
  console.log(p.name);
  f1(p);
  console.log(p.name);
-
-
 ```
+
+> let const var局部作用域的问题
+
+
 
 
 ## this绑定

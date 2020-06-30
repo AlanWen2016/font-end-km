@@ -157,6 +157,70 @@ module.exports = {
 ## nginx反向代理
 
 
+# node.js
+
+> 1. nodejs是基于Chrome V8引擎的javascript运行环境，2 Node.js是一个事件驱动I/O服务端JavaScript环境
+
+## nodejs内置模块
+process：记载node.js进程的信息
+os: 跟操作系统相关，获取操作系统相关信息
+EventEmit
+
+## node.js异步
+
+非阻塞I/O， 
+- I/O(iput/output),指一个系统的输入和输出
+- 阻塞I/O和非阻塞I/O的区别在于系统接收输入和输出期间，能不能再接收其他输入。
+
+
+## RPC调用
+
+> 与ajax的不同
+- 不一定使用使用dns作为寻址服务
+- 应用层协议一般不使用http
+- 基于tcp或者udp
+
+> tcp通信方式
+
+- 单工通信
+- 半双工通信
+- 全双工通信
+
+> 二进制协议
+- 更小包
+- 解析效率更高
+
+protocal-buffers
+
+## 使用node.js的net 搭建一个多路复用的RPC通道
+- client
+```js
+const net = require('net')
+const socket = new net.Socket({})
+socket.connect({
+    host: '127.0.0.1',
+    port: 4000
+})
+socket.write('hello net')
+```
+- server
+
+```js
+const net = require('net')
+const server = net.createServer((socket)=>{
+    socket.on('data', function(buffer){
+        console.log(buffer, buffer.toString)
+    })
+})
+server.listen(4000)
+```
+
+
+> 半双工通信的实现
+
+
+
+
 
 
 参考文档：  

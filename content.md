@@ -5,7 +5,7 @@
 #### 变量和类型
 1.JavaScript规定了几种语言类型
   JavaScript其中语言类型： 
-  Number, String, Object, null, undefined, Symbol, Bealoo
+  Number, String, Object, null, undefined, Symbol, Boolean
 
 2.JavaScript对象的底层数据结构是什么
 
@@ -34,6 +34,8 @@
 1.理解原型设计模式以及JavaScript中的原型规则
 2.instanceof的底层实现原理，手动实现一个instanceof
 4.实现继承的几种方式以及他们的优缺点
+
+
 5.至少说出一种开源项目(如Node)中应用原型继承的案例
 6.可以描述new一个对象的详细过程，手动实现一个new操作符
 7.理解es6 class构造以及继承的底层实现原理

@@ -12,7 +12,7 @@
     <button onclick="testDebounce()">click</button>
     <script>
         function testDebounce() {
-            betterFn2()
+            betterFn()
         }
         const betterFn = debounce(() => console.log('fn 防抖执行了'), 1000)
         const betterFn2 = throttle(() => console.log('fn throttle执行了'), 1000)

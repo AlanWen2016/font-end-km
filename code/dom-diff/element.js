@@ -91,7 +91,8 @@ const setAttribute = (node, key, value) => {
     }
     // 如果新旧节点类型相同
     else if (oldVirtualDom.tagName === newVirtualDom.tagName) {
-      // 比较属性是否相同
+      // 比较属性是否相同： 比较节点属性的思路
+      // 1. 先遍历oldDom的属性， 如果不等，就加到diff,  这个时候可能存在旧节点没有到属性，那就遍历新节点，把他们找出来
       let diffAttributeResult = {}
   
       for (let key in oldVirtualDom) {

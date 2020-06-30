@@ -2,12 +2,12 @@
 
 ## 原型和原型链
 
-1.理解原型设计模式以及JavaScript中的原型规则
-2.instanceof的底层实现原理，手动实现一个instanceof
-4.实现继承的几种方式以及他们的优缺点
-5.至少说出一种开源项目(如Node)中应用原型继承的案例
-6.可以描述new一个对象的详细过程，手动实现一个new操作符
-7.理解es6 class构造以及继承的底层实现原理
+1.理解原型设计模式以及JavaScript中的原型规则  
+2.instanceof的底层实现原理，手动实现一个instanceof  
+4.实现继承的几种方式以及他们的优缺点  
+5.至少说出一种开源项目(如Node)中应用原型继承的案例  
+6.可以描述new一个对象的详细过程，手动实现一个new操作符  
+7.理解es6 class构造以及继承的底层实现原理 
 
 
 虽然这些Javascript机制和传统的面向对象语言中的“类初始化”和“类继承”很相似，但是Javascript中的机制有一个核心的区别，那就是不会进行复制，对象之间是通过内部的[[Prototype]]链关联的。--《你不知道的javascript》
@@ -20,7 +20,7 @@ JavaScript是一种基于原型的语言，每个对象拥有一个原型对象�
 
 ## new命令原理
 
-// 四步操作
+> 四步操作
 - 创建一个空对象，作为将要返回的对象实例。
 - 将这个空对象的原型，指向构造函数的prototype属性。
 - 函数内部的this关键字指向这个空对象。
@@ -86,7 +86,7 @@ function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
 #### __proto__和prototype和constructor
 
 ##### 概念
-- prototype 是函数(function) 的一个属性, 它指向函数的原型.
+- prototype 是函数(function) 的一个属性方法, 它指向函数的原型.
 - __proto__ 是对象的内部属性, 它指向构造器的原型, 对象依赖它进行原型链查询，instanceof 也是依赖它来判断是否继承关系.
 由上, prototype 只有函数才有, 其他(非函数)对象不具有该属性. 而 __proto__ 是对象的内部属性, 任何对象都拥有该属性.
 
@@ -97,20 +97,21 @@ function Fruit(name){
 var apple = new Fruit('apple')
 
 console.log(Fruit.prototype); // 
-console.log(apple.__proto__ == Person.prototype);//true
+console.log(apple.__proto__ == Fruit.prototype);//true
 ```
 <img src="../../assets/image/js/apple.png" width="500" hegiht="313" align=center />  
-```
+
+```js
 var obj = {name: 'jack'},
     arr = [1,2,3],
     reg = /hello/g,
-    date = new Date,
+    date = new Date(),
     err = new Error('exception');
-console.log(obj.__proto__  === Object.prototype); // true
-console.log(arr.__proto__  === Array.prototype);  // true
-console.log(reg.__proto__  === RegExp.prototype); // true
-console.log(date.__proto__ === Date.prototype);   // true
-console.log(err.__proto__  === Error.prototype);  // true
+console.log(obj.__proto__  === Object.prototype); // true  
+console.log(arr.__proto__  === Array.prototype);  // true  
+console.log(reg.__proto__  === RegExp.prototype); // true  
+console.log(date.__proto__ === Date.prototype);   // true  
+console.log(err.__proto__  === Error.prototype);  // true  
 ```
 
 ##### __proto

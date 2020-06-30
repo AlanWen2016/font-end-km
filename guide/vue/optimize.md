@@ -183,7 +183,7 @@ export default new Vue({
     template: `
         <div>
             <skeleton1 id="skeleton1" style="display:none"/>
-            <skeleton2 id="skeleton2" style="display:none"/>
+            <skeleton2 id="skeletone2" style="display:none"/>
         </div>
     `
 });
@@ -246,6 +246,7 @@ class MyPlugin {
 ```
 
 ### 2).app-shell
+
 ### 3).pwa manifest serviceWorker
 
 > 浏览器性能分析=>performance

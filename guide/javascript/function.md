@@ -186,6 +186,14 @@ function throttle(fn, delay = 50) {
 在高频率触发的操作中，比如用户疯狂的点击一个按钮，这个按钮后面绑定一个点击事件，向后台接口发送一个异步请求以获取数据。还有比如监听滚动事件scroll。为了限制高频率触发事件，要对事件进行防抖限制。防抖动，就是不断触发事件过程中，我们设定一个定时器，一旦有新的事件触发，就重启计时器，所以最后一次触发才是真正对有效触发。
 举一个形象对例子，就像公交车到车站，司机需要停车等待1min，乘客开始上车，只要有乘客上车，司机就只能等待，一直等所有乘客上完车，假设一分钟内，没有乘客再上车，司机才能开车。
 
+```js 
+// 打印当前滚动条的高度
+function printScrollTop() {
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    console.log('滚动条高度： ' + scrollTop)
+}
+```
+
 ```js
 // 使用闭包形式保存setTimeout返回对句柄timer
 function debounce(fn, delay = 50) {

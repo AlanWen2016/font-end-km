@@ -21,6 +21,9 @@ HTTP 缓存（或 Web 缓存）是用于临时存储（缓存）Web文档（如 
 
 
 - 2. 按缓存失效到策略分类：
-    - 强缓存
-    - 协商缓存
+    - 强缓存, 控制字段包括： Cache-Control, Expires
+    - 协商缓存, 控制协商缓存的字段包括： Last-Modified / If-Modified-Since 和 Etag / If-None-Match
+
+
+    
 
