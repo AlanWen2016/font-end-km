@@ -2,7 +2,7 @@
 <img src="../../assets/image/vue/mvvm.png" width="300" hegiht="200" align=center />
 
 - 视图（View）：用户界面。View层组件有一定处理输入输出并作出反馈对能力 
-- 模型（Model）：数据保存。就是业务逻辑相关的数据对象，通常从数据库映射而来，我 们可以说是与数据库对应的model
+- 模型（Model）：数据保存。就是业务逻辑相关的数据对象，通常从数据库映射而来，我们可以说是与数据库对应的model
 
 - ViewModel：就是与界面(view)对应的Model。因为，数据库结构往往是不能直接跟界面控件一一对应上的，所以，需要再定义一个数据对象专门对应view上的控件。而ViewModel的职责就是把model对象封装成可以显示和接受输入的界面数据对象。  
 ViewModel就是View与Model的连接器，View与Model通过ViewModel实现双向绑定。 
@@ -22,8 +22,8 @@ vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过
 1. observer监听器，做两个事情，一是将数据对象改造成响应式数据，二是做个订阅器，数据的修改能够通知到订阅者
 2. compile编译器， 对模板进行解析，对模板绑定对数据和事件进行解析
 3. Watcher, 连接compile和observe, 能够订阅并收到每个属性变动对通知，执行指令绑定对相应
-
- 3、实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图 4、mvvm入口函数，整合以上三者
+4. 实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图
+5. mvvm入口函数，整合以上三者
 
 ## 1. 将一个对象改为响应式数据（使用数据劫持方法）
 ```js
@@ -45,7 +45,7 @@ function observe(obj) {
 function defineReactive(obj, key, val){
     observe(val)
     Object.defineProperty(obj, key,{
-        configurable: true,
+        configurable: true, // 决定是否可以delete key
         enumerable: true,
         get: function() {
             console.log('get value')

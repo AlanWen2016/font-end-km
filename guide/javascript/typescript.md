@@ -93,7 +93,7 @@ function extend<T, U>(first: T, second: U): T&U{
  如何理解interfaces
 :::
 在面向对象语言里，接口（interface）是行为的抽象，接口需要类（classes）来实现（implement）
-TS的interfaces概念更为灵活，可以用于类的行为的抽象，同时也可以用于描述对象的属性（对象的shape）,
+TS的interfaces概念更为灵活，可以用于1. 类的行为的抽象，2.同时也可以用于描述对象的属性（对象的shape）,
 接口的实现（implement）必须实现接口interface所有的方法和属性。多一个，少一个都是不允许的，除非interface配置的是可选属性。
 接口定义方式：
 - 通用属性
@@ -124,6 +124,36 @@ interface Person {
 // 一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：
 
 ```
+```ts
+interface Radio {
+    switchRadio(): void
+}
+interface Battery {
+    checkBatteryStatus():string
+}
+
+class Car implements Radio{
+    isRadioOn:boolean = false
+   switchRadio(): boolean {
+       return !this.isRadioOn
+   }
+}
+
+
+class CellPhone implements Radio,Battery {
+    isRadioOn:boolean = false
+    switchRadio(): boolean {
+        return !this.isRadioOn
+    }
+    checkBatteryStatus(): string {
+        return 'battery status'
+    }
+}
+
+```
+
+
+
 
 ### 组数类型
 ```ts
@@ -174,10 +204,12 @@ let sum = function(x, y) {
 function sum (x: number, y: number): number{
     return x + y;
 }
+// :号后面都是表示类型, 函数中类型变成(x: number, y: number)=>number
 let sum:(x: number, y: number)=>number = function(x: number, y: number): number{
     return x + y;
 } 
 ```
+
 - 接口形式定义函数
 ```ts
 interface foo {
@@ -320,6 +352,22 @@ console.log(Tom.move())
 
 #### class的属性修饰符： public private protected
 
+- 类(Class): 定义了一切事物的抽象特点, 比如造车, class就是造车的图纸. 
+- 对象(Object): 作为类的实例, 造车造出了福特、奥迪宝马
+- 面向对象的三大特性: 继承 、封装、多态
+
+- 静态属性, 使用类名直接调用, 不需要实例化
+```
+class Animal{
+    readonly name: string;
+    static categories: string[] = ['mammal', 'bird']
+    constructor(name: string){
+        this.name = name
+    }
+    run(){
+        return `${this.name} is running`
+    }
+```
 
 
 #### 重写override和重载overload
@@ -331,7 +379,7 @@ console.log(Tom.move())
 - 泛型类型
 - 泛型类
 - 泛型约束
-在数组中，例如一个identity函数，它的实现就是你传什么参数，它返回什么参数。这个时候，如果把它的传参定义为any,则无法精准表示原有函数。这个使用类型变量
+在数组中，例如一个identity函数，它的实现就是你传什么参数，它返回什么参数。这个时候，如果把它的传参定义为any,则无法精准表示原有函数。这个使用类型变量. 函数在定义的时候, 入参和返回结果的类型都是未知, 只有在函数执行才能推断出类型.
 ```ts
 function identity(arg: any): any{
     return arg
@@ -358,7 +406,7 @@ interface GenericIdentityFn<T>{
 }
 let myIdentity3: GenericIdentityFn<number> = identity
 ```
-泛型约束
+泛型约束: 使用extends关键字, 给泛型T, 赋约束.Lenghtwise表示
 ```ts
 interface Lenghtwise{
     length: number
@@ -421,9 +469,34 @@ createArray<string>(3, 'x'); // ['x', 'x', 'x']
 function swap<T, U>(tuple: [T, U]): [U, T] {
     return [tuple[1], tuple[0]];
 }
-
 swap([7, 'seven']); // ['seven', 7]
 ```
+- 使用泛型类class
+```js
+class  Queque<T>{
+    private data:T[] = []
+    push(item: any){
+        this.data.push(item)
+    }
+    pop() {
+        return this.data.shift()
+    }
+}
+let q = new Queque<string>()
+
+interface KeyPair<T, U>{
+    key: T,
+    value: U
+}
+
+let kp1: KeyPair<string, number> = {key: '1234', value: 1234}
+
+```
+
+
+
+
+
 
 ## 类型保护
 

@@ -14,16 +14,22 @@ for (i = 0; i < cars.length; i++) {
 
 // 声明式
 var makes = cars.map(function(car){ return car.make; });
+
 ```
 
 ## JSX 
 React认为渲染逻辑本质上和UI逻辑内在耦合。
 熟悉JSX语法
 
+> JSX属性和表达式
+
 
 ## React元素
 React元素是React应用的最小单元。
 不同于Dom元素，react元素是个普通对象。React Dom会负责更新Dom来与React Dom保持同步状态。
+
+ReactDOM.render可以保证浏览器显示跟React元素保持一致, React更新的时候,只更新必要元素
+
 
 
 ## 组件&Pros
@@ -37,9 +43,38 @@ React元素是React应用的最小单元。
 - 函数式组件
 - class组件，使用ES6的class来定义组件
 
+
 > 组件编写规则
 组件必须以大写字母开头，否则将被视为原生dom标签。
 所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。
+
+```js
+interface Props {
+    name: string
+}
+function Welcome(props: Props):React.ReactElement {
+    return <h1>hello {props.name}</h1>
+}
+const Welcome2: React.FunctionComponent<Props> = (props: Props): React.ReactElement =>{
+    return <h1>hello {props.name}</h1>
+}
+
+ReactDOM.render(<Welcome name="abc"/>, root)
+```
+函数式组件就像一个纯函数, 因为这个函数只接受属性和对象,并却返回一个值,输入确定,输出确定.
+```js
+// class 组件
+class Welcome2 extends React.Component<Props>{
+    render(): React.ReactElement{
+        return <h1>hello {this.props.name}</h1>
+    }
+}
+ReactDOM.render(<Welcome2 name="efg"/>, root)
+```
+
+### 复合组件和提供组件
+
+
 
 ## state&生命周期
 
@@ -56,6 +91,7 @@ class Clock extends React.Component {
   }
 }
 ```
+
 - 修改state, setState
 - 数据流传递方向
 
@@ -210,8 +246,112 @@ class Comment extends Component {
   }
 }
 ```
+> 复用组件业务逻辑的方法可以使用高阶组件和render props 
+## HOC高阶组件
+```js
+const withDoNothing = ((Component)=>{
+  const newComponent = (props) =>{
+    return <Component {...props} />
+  }
+  return newComponent
+})
+```
+高阶组件使用React作为参数，并且返回一个全新的React组件作为结果。高阶组件一般带有with前缀，高阶组件本身是个纯函数，可以用于抽象出的公共逻辑部分
+
+```js
+const withLoginIn = (Component) =>{
+  const NewComponent = (props) =>{
+    if(getUserId()){
+      return <Component {...props}/>
+    }else{
+      return null;
+    }
+    return NewComponent
+  }
+}
+```
+
+## render props
+
+一个简单的render props组件， 
+```js
+const renderAll = (props) =>{
+  return (
+    <React.Fragment>
+      {porps.children(props)}
+    </React.Fragment>
+  )
+}
+
+// useage
+<RenderAll>
+{()=> <h1>Hello world</h1>}
+</RenderAll>
+
+```
+"render props"是指一直在react组件之间使用一个值为函数的prop共享代码的简单技术。
+renderAll预期子组件是一个函数，它所做的事情就是把子组件当做函数使用，调用的参数就是传入的props.
+render props是React师姐的“依赖注入” （Dependency Injection）
+
+> 以根据用户登录态决定是否显示一些用户界面为例
+
+```js
+const Login = (props)=>{
+  const userName = getUesrName()
+  if(userName){
+    const allProps = {userName, ...props}
+    return (
+      <React.Fragment>
+        {props.children(allProps)}
+      </React.Fragment>
+    )
+  }else{
+    return null
+  }
+}
+
+// usage
+<Login>
+  <--传递一个函数组件进去， 返回一个新的组件-->
+  {({userName})=> <h1>Hello {userName}</h1>}
+</Login>
+```
+上面的例子作为render方法的是props.children,这个模式“以函数为子组件（function as chiild）”, 实际上任何props都可以作为函数.
+用户登录信息是可复用的逻辑，通过传参的形式，注入依赖， 后续别的业务组件需要使用的登录逻辑，同样可以使用依赖注入。
+
+```JS
+const Auth = (props)=>{
+  const userName = getUserName()
+  if(userName){
+    const allProps = {userName, ...props}
+    return (
+      <React.Fragment>
+        {props.login(allProps)}
+      </React.Fragment>
+    )
+  }else{
+     <React.Fragment>
+      {props.noLogin(props)}
+     </React.Fragment>
+  }
+}
+
+// useage
+<Auth
+  login={({userName})=> <h1>Hello {userName}</h1>}
+  onLogin = {()=> <h1>NO Login</h1>}
+>
+
+</Auth>
+```
+> 总结：
+
+- 形式上： render props实际上还是React 组件， HOC其实是个产生React组件的函数
 
 
+
+
+-------
 ## react教程- 井字游戏
 
 ### react组件声明
@@ -327,7 +467,39 @@ class UserList extends Component {
 }
 ```
 
+## react的生命周期
 
+> React16 前的生命周期
+```js
+compoentWillMount // 组件创建后,render前
+componentDidMount // 组件挂载完成
+componentWillReceiveProps // 接收nextProps
+shouldCompoentUpdate // state或props改变粗发,如果该函数的返回值为 false，则生命周期终止，反之继续；
+compoentWillUpdate
+compoentDidUpdate // 
+compoentWillUnMount // 卸载
+```
+
+废弃的生命周期: compoentWillReceiveProps、 componentWillUpdate、componentWillMount
+> React16 开始应用的新生命周期
+
+
+挂载过程：
+
+- constructor
+- getDerivedStateFromProps
+- render
+- componentDidMount
+更新过程：
+
+- getDerivedStateFromProps
+- shouldComponentUpdate
+- render
+- getSnapshotBeforeUpdate
+- componentDidUpdate
+卸载过程：
+
+- componentWillUnmount
 
 # Redux
 
