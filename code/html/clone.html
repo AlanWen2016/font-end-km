@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            padding: 10px;
+            z-index: 0;
+        }
+        .one{
+            width: 500px;
+            color:blueviolet;
+        }
+        .mask {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .8);
+            z-index: 900
+        }
+
+        #maskContent {
+            position: fixed;
+            z-index: 999;
+            display: inline-block;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="content one">我是第一个div，我是第一个div
+        <img src="./750.png" style="width: 100px;height: 100px;" alt="">
+
+    </div>
+    <div class="content two">我是第二个div，我是第二个div</div>
+    <div class="content three">我是第三个div，我是第三个div</div>
+    <div class="content four">我是第四个div，我是第四个div</div>
+    <div class="mask"></div>
+    <div id="maskContent"></div>
+
+    <script>
+        window.onload = function () {
+            function renderContent(cls) {
+                let targetNode = document.querySelector(`.${cls}`);
+                let maskContent = document.getElementById("maskContent");
+                maskContent.innerHTML = targetNode.outerHTML;
+                let pos = targetNode.getBoundingClientRect();
+                maskContent.style.top = pos.top + "px";
+                maskContent.style.left = pos.left + "px";
+                maskContent.style.width = pos.width + "px";
+                maskContent.style.height = pos.height + "px";
+            }
+            let i = 0;
+            setInterval(() => {
+                renderContent(['one', 'two', 'three', 'four'][i]);
+                if (++i >= 4) i = 0;
+            }, 1000)
+
+
+        }
+    </script>
+</body>
+
+</html>

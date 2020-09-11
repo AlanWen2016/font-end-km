@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            font-size: 24px;
+        }
+        #mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content one">我是第一个div，我是第一个div
+        <img src="./750.png" style="width: 100px;height: 100px;" alt="">
+    </div>
+    <div class="content two">我是第二个div，我是第二个div</div>
+    <div class="content three">我是第三个div，我是第三个div</div>
+    <div class="conteent four">我是第四个div，我是第四个div</div>
+    <canvas id="mask"></canvas>
+    <script>
+        window.onload = function () {
+            function mask(cls) {
+                let targetNode = document.querySelector(`.${cls}`);
+                let pos = targetNode.getBoundingClientRect();
+                let canvas = document.getElementById("mask");
+                let width = window.innerWidth;
+                let height = window.innerHeight;;
+                canvas.setAttribute("width", width);
+                canvas.setAttribute("height", height);
+                var ctx = canvas.getContext("2d");
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                ctx.fillRect(0, 0, width, height);
+                ctx.fill();
+                ctx.fillStyle = 'white';
+                ctx.globalCompositeOperation = "xor";
+                ctx.fillRect(pos.left, pos.top, pos.width, pos.height);
+                ctx.fill();
+            }
+            let array = ['one', 'two', 'three', 'four'];
+            mask(array[0]);
+            // let i = 0;
+            // setInterval(() => {
+            //     mask(array[i]);
+            //     i++;
+            //     if (i >= 4) i = 0;
+            // }, 1000)
+        }
+    </script>
+</body>
+
+</html>
