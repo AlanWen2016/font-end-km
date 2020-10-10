@@ -291,7 +291,7 @@ const renderAll = (props) =>{
 ```
 "render props"是指一直在react组件之间使用一个值为函数的prop共享代码的简单技术。
 renderAll预期子组件是一个函数，它所做的事情就是把子组件当做函数使用，调用的参数就是传入的props.
-render props是React师姐的“依赖注入” （Dependency Injection）
+render props是React实现的“依赖注入” （Dependency Injection）
 
 > 以根据用户登录态决定是否显示一些用户界面为例
 
@@ -344,6 +344,68 @@ const Auth = (props)=>{
 
 </Auth>
 ```
+
+> 官方文档： 猫追着鼠标的例子
+```js
+class Cat extends React.Component {
+  render() {
+    const mouse = this.props.mouse;
+    return (
+      <img src="/cat.jpg" style={{ position: 'absolute', left: mouse.x, top: mouse.y }} />
+    );
+  }
+}
+
+class Mouse extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.state = { x: 0, y: 0 };
+  }
+
+  handleMouseMove(event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+
+        {/*
+          使用 `render`prop 动态决定要渲染的内容，
+          而不是给出一个 <Mouse> 渲染结果的静态表示
+        */}
+        {this.props.render(this.state)}
+      </div>
+    );
+  }
+}
+
+class MouseTracker extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>移动鼠标!</h1>
+        <Mouse render={mouse => (
+          <Cat mouse={mouse} />
+        )}/>
+      </div>
+    );
+  }
+}
+
+```
+猫这个图片追着鼠标：
+- 要确定这个图片的位置， 也就是鼠标的位置
+- 鼠标的位置单独封装成组件
+- 鼠标这个组件接受一个render的props, 直接渲染这个组件
+
+
+
+
 > 总结：
 
 - 形式上： render props实际上还是React 组件， HOC其实是个产生React组件的函数
