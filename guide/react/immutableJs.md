@@ -94,3 +94,6 @@ const result = list.update(2, val => val.toUpperCase())
 
 - reverse翻转List/Map
 - 排序 sort & sortBy
+
+
+https://www.w3cplus.com/javascript/immutable-js.html
